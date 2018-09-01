@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Nomoni.Data.EntityFramework.Abstractions
+namespace Nomoni.Data.EntityFramework
 {
     public interface IEntityRegistration
     {

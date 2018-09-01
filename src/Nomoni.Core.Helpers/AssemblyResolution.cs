@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace Nomoni.Mvc.Extensions
+namespace Nomoni.Core.Helpers
 {
     public static class AssemblyResolution
     {

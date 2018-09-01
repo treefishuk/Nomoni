@@ -5,11 +5,12 @@
     <Authors>Jon Ryan</Authors>
     <Company>Treefish</Company>
     <Product>Nomoni</Product>
-    <PackageProjectUrl>https://github.com/treefishuk/nomoni</PackageProjectUrl>
+    <PackageProjectUrl>https://treefish.uk/nomoni/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/treefishuk/nomoni</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageLicenseUrl>https://github.com/treefishuk/nomoni/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>2018 Jon Ryan</Copyright>
+    <Version>0.1.0</Version>
   </PropertyGroup>
 
 </Project>

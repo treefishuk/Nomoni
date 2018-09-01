@@ -7,13 +7,18 @@
     <Authors>Jon Ryan</Authors>
     <Product>Nomoni</Product>
     <RepositoryUrl>https://github.com/treefishuk/nomoni</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/treefishuk/nomoni</PackageProjectUrl>
+    <PackageProjectUrl>https://treefish.uk/nomoni/</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/treefishuk/nomoni/blob/master/LICENSE</PackageLicenseUrl>
     <Copyright>2018 Jon Ryan</Copyright>
+    <Version>0.1.0</Version>
   </PropertyGroup>
   
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.2" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Nomoni.Core.Helpers\Nomoni.Core.Helpers.csproj" />
   </ItemGroup>
   
 </Project>
