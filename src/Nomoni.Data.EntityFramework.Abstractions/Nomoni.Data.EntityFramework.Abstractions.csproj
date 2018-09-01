@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Company>Treefish</Company>
+    <Authors>Jon Ryan</Authors>
+    <Product>Nomoni</Product>
+    <RepositoryUrl>https://github.com/treefishuk/nomoni</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/treefishuk/nomoni</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/treefishuk/nomoni/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>2018 Jon Ryan</Copyright>
   </PropertyGroup>
   
   <ItemGroup>

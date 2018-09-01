@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Jon Ryan</Authors>
+    <Company>Treefish</Company>
+    <Product>Nomoni</Product>
+    <PackageProjectUrl>https://github.com/treefishuk/nomoni</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/treefishuk/nomoni</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/treefishuk/nomoni/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>2018 Jon Ryan</Copyright>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
