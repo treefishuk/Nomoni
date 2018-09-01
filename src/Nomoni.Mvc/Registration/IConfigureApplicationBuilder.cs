@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Nomoni.Mvc.Registration
 {
-   public  interface IConfigureApplicationBuilder
+    public  interface IConfigureApplicationBuilder
     {
 
         int Priority { get; }

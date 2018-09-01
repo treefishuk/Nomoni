@@ -21,18 +21,18 @@ namespace Nomoni.Mvc.Extensions
 
         public static void UseNomoni(this IServiceCollection services)
         {
-            services.ModuleRegistration();
 
             services.RegisterAllTypes<IConfigureServicesAction>(ServiceLifetime.Singleton);
 
             IServiceProvider serviceProvider = services.BuildServiceProvider();
-
 
             foreach (IConfigureServicesAction action in serviceProvider.GetServices<IConfigureServicesAction>().OrderBy(a => a.Priority))
             {
                 action.Execute(services);
                 serviceProvider = services.BuildServiceProvider();
             }
+
+            services.ModuleRegistration();
 
         }
 
@@ -49,7 +49,6 @@ namespace Nomoni.Mvc.Extensions
             {
 
                 var normalStaticFileProvider = new PhysicalFileProvider(Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
-
                 var manifestProviders = assemblies.Select(a => new ManifestEmbeddedFileProvider(a, "wwwroot")).ToList();
 
                 List<IFileProvider> prodiders = new List<IFileProvider>();
