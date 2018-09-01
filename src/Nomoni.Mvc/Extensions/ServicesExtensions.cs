@@ -33,7 +33,7 @@ namespace Nomoni.Mvc.Extensions
             }
         }
 
-        public static void ModuleRegistration(this IServiceCollection services)
+        private static void ModuleRegistration(this IServiceCollection services)
         {
             var assemblies = GetModuleAssemblies();
 
