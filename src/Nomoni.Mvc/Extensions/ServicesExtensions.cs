@@ -18,7 +18,7 @@ namespace Nomoni.Mvc.Extensions
             return AssemblyResolution.GetTypes<IModule>().Select(s => s.Assembly).Distinct();
         }
 
-        public static void UseModules(this IServiceCollection services)
+        public static void UseNomoni(this IServiceCollection services)
         {
             services.ModuleRegistration();
 

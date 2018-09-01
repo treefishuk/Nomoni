@@ -1,37 +1,74 @@
-## Welcome to GitHub Pages
+# Nomoni
 
-You can use the [editor on GitHub](https://github.com/treefishuk/nomoni/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+![alt text](https://treefish.visualstudio.com/Nomoni/_apis/build/status/Nomoni%20CI%20Build "build status")
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Introduction
 
-### Markdown
+Nomoni is a few tiny nuget packages that help you:  
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Split up a .net core web app into seperate manageble modules
+- Auto register implementations of interfaces
+- Make EFCore more modular and auto regiter entities
+- Adhere to SOLID principles
+- Keep things organised and tidy
 
-```markdown
-Syntax highlighted code block
+## Requirements
 
-# Header 1
-## Header 2
-### Header 3
+- The .net core MVC projects need to be targetting 2.1
 
-- Bulleted
-- List
+## Packages
 
-1. Numbered
-2. List
+The available packages are:
 
-**Bold** and _Italic_ and `Code` text
+- Nomoni.Core.Abstractions
+- Nomoni.Core.Helpers
+- Nomoni.Mvc
+- Nomoni.Data.Abstractions
+- Nomoni.Data.EntityFramework
 
-[Link](url) and ![Image](src)
-```
+### Nomoni.Core.Abstractions
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+This provides interfaces for automatic service and module registration.
 
-### Jekyll Themes
+### Nomoni.Core.Helpers
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/treefishuk/nomoni/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+This provides helpers to automatically scan the projects .dll's and RegisterAllTypes in those .ddl's that inherit from a given interface.
 
-### Support or Contact
+### Nomoni.Mvc
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This is the minimum required packages to use Nomoni. It provides a simple services extention method that sets everything up to go.
+
+### Nomoni.Data.Abstractions
+
+This provides the interfaces for any object relational mapper to inherit from.
+
+### Nomoni.Data.EntityFramework
+
+This provides EFCore implementation of the interfaces in Nomoni.Data.Abstractions. In the future there may be other implementations but it is just EFcore for now.
+
+## What does Nomoni mean?
+
+So the idea with this is that it is friendly sounding abbreviated(ish) version of "No Monaliths". It also sounds like it should be a thing even though I'm pretty sure its not a real word!
+
+### Documentation
+
+Check out our documentation:
+
+- [Getting Started](/docs/getting-started)
+
+### Support
+
+Please feel free to raise issues on the [github page](https://github.com/treefishuk/nomoni/issues).
+
+### Inspiration
+
+This work was largely based on the work of Dmitry Sikorsky and his [Ext Core Framework](https://github.com/ExtCore/ExtCore/)
+
+As great as the framework is it was too large for me and it didn't support a few things which I required.
+
+#### Diffferences to Ext Core
+
+- Javascript and CSS files paths are maintained 
+- Consuming projects with the exception of the MVC projects are .net standard
+- Far less going on, 5 simple projects instead 18
+
