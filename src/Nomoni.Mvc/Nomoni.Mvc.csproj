@@ -17,5 +17,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Nomoni.Core.Abstractions\Nomoni.Core.Abstractions.csproj" />
+    <ProjectReference Include="..\Nomoni.Core.Helpers\Nomoni.Core.Helpers.csproj" />
   </ItemGroup>
 </Project>

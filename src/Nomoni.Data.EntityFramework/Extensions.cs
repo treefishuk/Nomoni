@@ -8,10 +8,8 @@ namespace Nomoni.Data.EntityFramework
 {
     public static class Extensions
     {
-
         public static void RegisterEntities(this ModelBuilder builder)
         {
-
             var entityRegistrations = AssemblyResolution.GetTypes<IEntityRegistration>();
 
             foreach (var type in entityRegistrations)
@@ -19,11 +17,8 @@ namespace Nomoni.Data.EntityFramework
                 var go = Activator.CreateInstance(type) as IEntityRegistration;
 
                 go.RegisterEntities(builder);
-
             }
-
         }
-
 
     }
 }
