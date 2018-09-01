@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Nomoni.Data.Abstractions
+﻿namespace Nomoni.Data.Abstractions
 {
     public interface IStorage
     {

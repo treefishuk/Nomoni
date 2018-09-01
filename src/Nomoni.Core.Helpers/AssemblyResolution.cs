@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Nomoni.Core.Helpers
 {
@@ -27,5 +26,26 @@ namespace Nomoni.Core.Helpers
         {
             return GetAssemblies().SelectMany(a => a.DefinedTypes.Where(x => x.GetInterfaces().Contains(typeof(T))));
         }
+
+        public static IEnumerable<T> GetInstances<T>()
+        {
+
+            List<T> instances = new List<T>();
+
+            foreach (Type implementation in GetTypes<T>())
+            {
+                if (!implementation.GetTypeInfo().IsAbstract)
+                {
+                    T instance = (T)Activator.CreateInstance(implementation);
+
+                    instances.Add(instance);
+                }
+            }
+
+            return instances;
+
+
+        }
+
     }
 }

@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Nomoni.Core.Helpers;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Nomoni.Data.EntityFramework
 {

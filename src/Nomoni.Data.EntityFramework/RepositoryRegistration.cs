@@ -2,6 +2,7 @@
 using Nomoni.Core.Abstractions;
 using Nomoni.Core.Helpers;
 using Nomoni.Data.Abstractions;
+using System.Linq;
 
 namespace Nomoni.Data.EntityFramework
 {
@@ -11,7 +12,20 @@ namespace Nomoni.Data.EntityFramework
 
         public void Execute(IServiceCollection serviceCollection)
         {
-            serviceCollection.RegisterAllTypes<IRepository>(ServiceLifetime.Scoped);
+
+            var typesThatImplementIRepository = AssemblyResolution.GetTypes<IRepository>().Where(x => !x.IsInterface);
+
+
+            foreach(var type in typesThatImplementIRepository)
+            {
+
+                var interfaceToRegister = type.GetInterfaces().Where(x => x.Name.EndsWith("Repository") && !x.Name.Equals("IRepository")).FirstOrDefault();
+
+                serviceCollection.Add(new ServiceDescriptor(interfaceToRegister, type, ServiceLifetime.Scoped));
+
+            }
+
+
         }
     }
 }
