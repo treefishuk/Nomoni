@@ -17,6 +17,5 @@ namespace Nomoni.Data.EntityFramework
                 go.RegisterEntities(builder);
             }
         }
-
     }
 }

@@ -7,7 +7,6 @@ namespace Nomoni.Data.EntityFramework
 {
     public class StorageImplementation : IStorage
     {
-
         private readonly IServiceProvider _serviceProvider;
         private readonly DbContext _dbContext;
 
@@ -19,7 +18,7 @@ namespace Nomoni.Data.EntityFramework
 
         public T GetRepository<T>()
         {
-            return _serviceProvider.GetRequiredService<T>();
+            return _serviceProvider.GetService<T>();
         }
 
         public void Save()

@@ -6,7 +6,6 @@ using Nomoni.Core.Abstractions;
 using Nomoni.Core.Helpers;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -21,7 +20,6 @@ namespace Nomoni.Mvc.Extensions
 
         public static void UseNomoni(this IServiceCollection services)
         {
-
             services.RegisterAllTypes<IConfigureServicesAction>(ServiceLifetime.Singleton);
 
             IServiceProvider serviceProvider = services.BuildServiceProvider();
@@ -33,7 +31,6 @@ namespace Nomoni.Mvc.Extensions
             }
 
             services.ModuleRegistration();
-
         }
 
         private static void ModuleRegistration(this IServiceCollection services)
@@ -47,23 +44,10 @@ namespace Nomoni.Mvc.Extensions
 
             services.Configure<StaticFileOptions>(options =>
             {
-
-                var normalStaticFileProvider = new PhysicalFileProvider(Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot")));
                 var manifestProviders = assemblies.Select(a => new ManifestEmbeddedFileProvider(a, "wwwroot")).ToList();
 
-                List<IFileProvider> prodiders = new List<IFileProvider>();
-
-                foreach(var item in manifestProviders)
-                {
-                    prodiders.Add(item);
-                }
-
-                prodiders.Add(normalStaticFileProvider);
-
-                options.FileProvider = new CompositeFileProvider(prodiders);
+                options.FileProvider = new CompositeFileProvider(manifestProviders);
             });
         }
     }
-
-
 }

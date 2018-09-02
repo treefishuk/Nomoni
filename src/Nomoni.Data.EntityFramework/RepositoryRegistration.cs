@@ -12,20 +12,14 @@ namespace Nomoni.Data.EntityFramework
 
         public void Execute(IServiceCollection serviceCollection)
         {
-
             var typesThatImplementIRepository = AssemblyResolution.GetTypes<IRepository>().Where(x => !x.IsInterface);
-
 
             foreach(var type in typesThatImplementIRepository)
             {
-
                 var interfaceToRegister = type.GetInterfaces().Where(x => x.Name.EndsWith("Repository") && !x.Name.Equals("IRepository")).FirstOrDefault();
 
                 serviceCollection.Add(new ServiceDescriptor(interfaceToRegister, type, ServiceLifetime.Scoped));
-
             }
-
-
         }
     }
 }

@@ -29,7 +29,6 @@ namespace Nomoni.Core.Helpers
 
         public static IEnumerable<T> GetInstances<T>()
         {
-
             List<T> instances = new List<T>();
 
             foreach (Type implementation in GetTypes<T>())
@@ -43,9 +42,6 @@ namespace Nomoni.Core.Helpers
             }
 
             return instances;
-
-
         }
-
     }
 }
