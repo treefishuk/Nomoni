@@ -3,7 +3,7 @@
 
 ## Prerequisites
 
-To start this tutorial you will need to have compeleted In [Part 1 : Basic Web App with single module](/part-one-single-module).
+To start this tutorial you will need to have compeleted In [Part 1 : Basic Web App with single module](/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module ).
 
 ## Outcome
 
