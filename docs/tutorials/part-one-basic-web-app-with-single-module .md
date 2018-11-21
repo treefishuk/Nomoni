@@ -103,7 +103,6 @@ Update the modules .csproj file to look like this:
 </Project>
 ```
 
-
 ## Step 8 : Create Module Definition
 
 Add a new folder to the module prject called "Actions".
@@ -148,4 +147,4 @@ If the steps were successful then you should have a classic ASP .net Core App ru
 
 ## Next Steps
 
-In [Part 2 : Adding a second module](/part-two-adding-a-second-module) we will add a seccond module to the solution.
+In [Part 2 : Adding a second module](/nomoni/docs/tutorials/part-two-adding-a-second-module) we will add a seccond module to the solution.
