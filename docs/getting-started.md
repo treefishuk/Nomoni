@@ -10,6 +10,6 @@ Getting started is pretty straight forward. I find that code speaks louder then 
 
 ## Tutorials:
 
-- [Part 1 : ASP Web App With Single Module](/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module) 
+- [Part 1 : ASP Web App With Single Module](tutorials/part-one-basic-web-app-with-single-module) 
 
 
