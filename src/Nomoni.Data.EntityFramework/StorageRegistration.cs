@@ -6,7 +6,7 @@ namespace Nomoni.Data.EntityFramework
 {
     public class StorageRegistration : IConfigureServicesAction
     {
-        public int Priority => 1000;
+        public int Priority => 10;
 
         public void Execute(IServiceCollection serviceCollection)
         {

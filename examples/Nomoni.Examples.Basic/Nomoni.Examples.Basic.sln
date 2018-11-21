@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomoni.Examples.Basic", "Nomoni.Examples.Basic\Nomoni.Examples.Basic.csproj", "{E5BEAB04-B9A1-4BBC-828A-F11106DFA30E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomoni.Examples.Basic.Module", "Nomoni.Examples.Basic.Module\Nomoni.Examples.Basic.Module.csproj", "{D32BB497-944D-4B1F-B83E-96A43AD16681}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5BEAB04-B9A1-4BBC-828A-F11106DFA30E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5BEAB04-B9A1-4BBC-828A-F11106DFA30E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5BEAB04-B9A1-4BBC-828A-F11106DFA30E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5BEAB04-B9A1-4BBC-828A-F11106DFA30E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32BB497-944D-4B1F-B83E-96A43AD16681}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32BB497-944D-4B1F-B83E-96A43AD16681}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32BB497-944D-4B1F-B83E-96A43AD16681}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32BB497-944D-4B1F-B83E-96A43AD16681}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91B089BB-B448-42FD-92D9-CB73D892D74E}
+	EndGlobalSection
+EndGlobal
