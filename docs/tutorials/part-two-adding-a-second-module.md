@@ -266,7 +266,7 @@ If the steps were successful then you should have a classic ASP .net Core App ru
 
 This time you should be able to access content from the new admin module by going to "/admin/management" which should look like this :
 
-![Management Module](../images/management-module.PNG "Management Module")
+![Management Module](../images/management-module.png "Management Module")
 
 Clicking on the button should produce the alert message, and the title has been styled with the admin stylesheet.
 
@@ -278,3 +278,5 @@ Clicking on the button should produce the alert message, and the title has been 
 ## Next Steps
 
 In the Next Tutorial we will fix the issues with the css and javascript placement, and also amend the navigation bar to include the new admin module.
+
+[Part 3 : Asset and Navigation Improvements](https://github.com/treefishuk/nomoni/docs/tutorials/part-two-adding-a-second-module)

@@ -8,6 +8,7 @@ Getting started is pretty straight forward. I find that code speaks louder then 
 
 - [Part 1 : ASP Web App With Single Module](tutorials/part-one-basic-web-app-with-single-module) 
 - [Part 2 : Adding a Second Module](tutorials/part-two-adding-a-second-module) 
+- [Part 3 : Asset and Navigation Improvements](tutorials/part-two-adding-a-second-module)
 
 ### Tutorials Coming Soon..
 
@@ -20,3 +21,4 @@ Getting started is pretty straight forward. I find that code speaks louder then 
 
 - [Part 1 : ASP Web App With Single Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic/) 
 - [Part 2 : ASP Web App With Second Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.SecondModule/) 
+- [Part 3 : Asset and Navigation Improvements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements/) 
