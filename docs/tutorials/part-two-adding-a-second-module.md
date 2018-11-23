@@ -279,4 +279,4 @@ Clicking on the button should produce the alert message, and the title has been 
 
 In the Next Tutorial we will fix the issues with the css and javascript placement, and also amend the navigation bar to include the new admin module.
 
-[Part 3 : Asset and Navigation Improvements](https://github.com/treefishuk/nomoni/docs/tutorials/part-two-adding-a-second-module)
+- [Part 3 : Asset and Navigation Improvements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements/) 
