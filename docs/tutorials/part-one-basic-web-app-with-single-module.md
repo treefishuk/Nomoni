@@ -142,7 +142,11 @@ If the steps were successful then you should have a classic ASP .net Core App ru
 
 ![Empty Project](../images/basic-webpage.PNG "MVC App")
 
-## The Source Code for this Tutorial can be found
+## Source code for this example
+
+The source code for this tutorial can be found here:
+
+[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic)
 
 
 ## Next Steps
