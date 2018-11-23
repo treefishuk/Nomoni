@@ -7,7 +7,7 @@ Welcome to part one of the getting started tutorials. This tutorial describes th
 ![Empty Project](../images/Empty-Project.PNG "Empty Project")
 
 
-## Step 2 : Install Nomoni/Mvc nuget package
+## Step 2 : Install Nomoni/MVC nuget package
 
 Install the Nomoni.Mvc package in the empty project
 
@@ -48,14 +48,14 @@ Install-Package Nomoni.Mvc
 
 ## Step 4 : Add a second project using MVC template
 
-This wil form the basic of our first module.
+This will form the basic of our first module.
 
 ![Empty Project](../images/MVC-App.PNG "MVC App")
 
 
 ## Step 5 : Install Nomoni.Mvc nuget package
 
-Install the Nomoni.Mvc package in the empty project
+Install the Nomoni.Mvc package in the MVC project
 
 ```
 Install-Package Nomoni.Mvc
@@ -68,7 +68,7 @@ Delete :
 - Startup.cs
 - appsettings.json
 
-And ammend Project.cs to the following:
+And amend Project.cs to the following:
 
 ```
     public class Program
@@ -105,7 +105,7 @@ Update the modules .csproj file to look like this:
 
 ## Step 8 : Create Module Definition
 
-Add a new folder to the module prject called "Actions".
+Add a new folder to the module project called "Actions".
 
 Add a new file called "ModuleInfo.cs" and implement the IModule interface found in Nomoni.Core.Abstractions
 
@@ -147,4 +147,4 @@ If the steps were successful then you should have a classic ASP .net Core App ru
 
 ## Next Steps
 
-In [Part 2 : Adding a second module](/nomoni/docs/tutorials/part-two-adding-a-second-module) we will add a seccond module to the solution.
+In [Part 2 : Adding a second module](/nomoni/docs/tutorials/part-two-adding-a-second-module) we will add a second module to the solution.
