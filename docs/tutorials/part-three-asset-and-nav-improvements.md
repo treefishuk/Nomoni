@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-To start this tutorial you will need to have completed In [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module (2)). The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
+To start this tutorial you will need to have completed In [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module). The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
 
 ## Outcome
 
@@ -75,7 +75,7 @@ Update the ManagmentViewModel.cs to inherit from the BasePageViewModel class:
 ```
 
 
-## Step 6 : Update MamangementController.cs
+## Step 6 : Update ManagementController.cs
 
 Update the Management Controller to use the BasePageModelExtensions to register the styles and scripts.
 
@@ -133,7 +133,7 @@ The View should now look like this :
 
 The _Layout.cshtml will need amending to expect a model that inherits from BasePageViewModel.
 
-Add a reference to the basic module to the shared module and update _Layout.cshtml to the following:
+Add a reference to the shared module in the basic module and update _Layout.cshtml to the following:
 
 ```
 @model Nomoni.Examples.Basic.Shared.BasePageViewModel
@@ -158,7 +158,7 @@ Add a reference to the basic module to the shared module and update _Layout.csht
 
     @foreach (var url in Model.PageStyles)
     {
-        <script src="/@url"></script>
+        <script src="@url"></script>
     }
 
 </head>
@@ -319,28 +319,14 @@ Add IMenu.cs to the shared project :
 
 ```
 
-
-## Step 13 : Add a new IMenu interface to the shared project
-
-Add IMenu.cs to the shared project :
-
-```
-    public interface IMenu
-    {
-        IEnumerable<MenuItem> MenuItems { get; }
-    }
-
-```
-
-
-## Step 14 : Add Nomoni.Core.Helpers nuget package to shared project
+## Step 13 : Add Nomoni.Core.Helpers nuget package to shared project
 
 
 ```
 Install-Package Nomoni.Core.Helpers
 ```
 
-## Step 15 : Add menu items to BasePageViewModel.cs
+## Step 14 : Add menu items to BasePageViewModel.cs
 
 
 ```
@@ -367,7 +353,7 @@ Install-Package Nomoni.Core.Helpers
 The PopulateMenu Extension will be created in the next step.
 
 
-## Step 16 : Add Extension new Extension method to BasePageModelExtensions.cs
+## Step 15 : Add Extension new Extension method to BasePageModelExtensions.cs
 
 
 ```
@@ -404,7 +390,7 @@ The PopulateMenu Extension will be created in the next step.
 ```
 
 
-## Step 17 : Update _Layout.cshtml again
+## Step 16 : Update _Layout.cshtml again
 
 Update the "Nav" section of _Layout.cshtml to : 
 
@@ -457,7 +443,7 @@ Add RegisterMenuItems.cs to the Registrations folder of the base module with:
     }
 ```
 
-## Step 17 : Add menu Items for Admin Module
+## Step 18 : Add menu Items for Admin Module
 
 Add RegisterMenuItems.cs to the Registrations folder of the admin module with: 
 
