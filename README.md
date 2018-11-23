@@ -6,15 +6,15 @@
 
 Nomoni is a few tiny nuget packages that help you:  
 
-- Split up a .net core web app into seperate manageble modules
+- Split up a .net core web app into separate manageable modules
 - Auto register implementations of interfaces
-- Make EFCore more modular and auto regiter entities
+- Make EFCore more modular and auto register entities
 - Adhere to SOLID principles
-- Keep things organised and tidy
+- Keep things organized and tidy
 
 ## Requirements
 
-- The .net core MVC projects need to be targetting 2.1
+- The .net core MVC projects need to be targeting 2.1
 
 ## Packages
 
@@ -36,7 +36,7 @@ This provides helpers to automatically scan the projects .dll's and RegisterAllT
 
 ### Nomoni.Mvc
 
-This is the minimum required packages to use Nomoni. It provides a simple services extention method that sets everything up to go.
+This is the minimum required packages to use Nomoni. It provides a simple services extension method that sets everything up to go.
 
 ### Nomoni.Data.Abstractions
 
@@ -48,13 +48,27 @@ This provides EFCore implementation of the interfaces in Nomoni.Data.Abstraction
 
 ## What does Nomoni mean?
 
-So the idea with this is that it is friendly sounding abbreviated(ish) version of "No Monaliths". It also sounds like it should be a thing even though I'm pretty sure its not a real word!
+So the idea with this is that it is friendly sounding abbreviated(ish) version of "No Monoliths". It also sounds like it should be a thing even though I'm pretty sure its not a real word!
 
-### Documentation
+## Getting Started
 
-Check out our documentation:
+### Tutorials:
 
-- [Getting Started](https://treefish.uk/nomoni/docs/getting-started)
+- [Part 1 : ASP Web App With Single Module](https://treefish.uk/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module) 
+- [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module) 
+- [Part 3 : Asset and Navigation Improvements](https://treefish.uk/nomoni/docs/tutorials/part-three-asset-and-nav-improvements)
+
+### Tutorials Coming Soon..
+
+- Part 4 : Adding Security
+- Part 5 : Modular Entity Framework
+- Part 6 : Integrating SaasKit
+
+### Sample projects on GitHub:
+
+- [Part 1 : ASP Web App With Single Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic/) 
+- [Part 2 : ASP Web App With Second Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.SecondModule/) 
+- [Part 3 : Asset and Navigation Improvements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements/) 
 
 ### Support
 
@@ -66,7 +80,7 @@ This work was largely based on the work of Dmitry Sikorsky and his [Ext Core Fra
 
 As great as the framework is it was too large for me and it didn't support a few things which I required.
 
-#### Diffferences to Ext Core
+#### Differences to Ext Core
 
 - Javascript and CSS files paths are maintained 
 - Consuming projects with the exception of the MVC projects are .net standard
