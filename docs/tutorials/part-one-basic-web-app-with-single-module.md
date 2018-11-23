@@ -105,7 +105,7 @@ Update the modules .csproj file to look like this:
 
 ## Step 8 : Create Module Definition
 
-Add a new folder to the module project called "Actions".
+Add a new folder to the module project called "Registrations".
 
 Add a new file called "ModuleInfo.cs" and implement the IModule interface found in Nomoni.Core.Abstractions
 
@@ -120,7 +120,7 @@ Add a new file called "ModuleInfo.cs" and implement the IModule interface found 
 
 ## Step 9 : Create Route Registration Definition
 
-Add a new file to "Actions" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in Nomoni.Mvc.Registration
+Add a new file to "Registrations" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in Nomoni.Mvc.Registration
 
 ```
     public class RouteRegistration : IRouteRegistration

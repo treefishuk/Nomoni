@@ -81,7 +81,7 @@ Update the modules .csproj file to look like this:
 
 ## Step 5 : Create Module Definition
 
-Add a new folder to the module project called "Actions".
+Add a new folder to the module project called "Registrations".
 
 Add a new file called "ModuleInfo.cs" and implement the IModule interface found in Nomoni.Core.Abstractions
 
@@ -230,18 +230,18 @@ namespace Nomoni.Examples.Basic.AdminModule.Controllers
 
 ## Step 12 : Create Route Registration Definition
 
-Add a new file to "Actions" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in Nomoni.Mvc.Registration
+Add a new file to "Registrations" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in Nomoni.Mvc.Registration
 
 ```
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Nomoni.Mvc.Registration;
 
-namespace Nomoni.Examples.Basic.AdminModule.Actions
+namespace Nomoni.Examples.Basic.AdminModule.Registrations
 {
     public class RouteRegistration : IRouteRegistration
     {
-        public int Priority => 1000;
+        public int Priority => 2000;
 
         public void Execute(IRouteBuilder routeBuilder)
         {
