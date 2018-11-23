@@ -54,7 +54,7 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 
 Check out our documentation:
 
-- [Getting Started](https://github.com/treefishuk/nomoni/docs/getting-started)
+- [Getting Started](https://treefish.uk/nomoni/docs/getting-started)
 
 ### Support
 
