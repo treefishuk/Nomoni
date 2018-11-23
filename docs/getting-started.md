@@ -8,7 +8,7 @@ Getting started is pretty straight forward. I find that code speaks louder then 
 
 - [Part 1 : ASP Web App With Single Module](tutorials/part-one-basic-web-app-with-single-module) 
 - [Part 2 : Adding a Second Module](tutorials/part-two-adding-a-second-module) 
-- [Part 3 : Asset and Navigation Improvements](tutorials/part-two-adding-a-second-module)
+- [Part 3 : Asset and Navigation Improvements](tutorials/part-three-asset-and-nav-improvements)
 
 ### Tutorials Coming Soon..
 
