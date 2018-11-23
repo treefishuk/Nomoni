@@ -9,14 +9,14 @@ To start this tutorial you will need to have completed In [Part 2 : Adding a Sec
 The aim of this tutorial is to improve the rendering of the scripts from modules so they appear at the bottom of the page. Improve the placement of stylesheets from the modules so they render in the head of the webpage, and to make the navigation bar dynamic based upon loaded modules.
 
 
-## Step 1 : Add a new .net standard class library
+## Step 1 : Add a new .net standard Class Library
 
 This will form the basic of our new module.
 
 ![Shared project](../images/standard-lib.png "Shared project")
 
 
-## Step 2 : Add a new BasePageViewModel class
+## Step 2 : Add a new BasePageViewModel Class
 
 Add a class to the shared project that looks like this:
 
@@ -38,7 +38,7 @@ Add a class to the shared project that looks like this:
     }
 ```
 
-## Step 3 : Add a BasePageViewModelExtensions class
+## Step 3 : Add a BasePageViewModelExtensions Class
 
 Add a class to the shared project that looks like this:
 
@@ -107,7 +107,7 @@ namespace Nomoni.Examples.Basic.AdminModule.Controllers
 ```
 
 
-## Step 7 : Remove scripts and styles from the Management Index View
+## Step 7 : Remove Scripts and Styles from the Management Index View
 
 The View should now look like this : 
 
@@ -227,7 +227,7 @@ Add a reference to the shared module in the basic module and update _Layout.csht
 
 ```
 
-## Step 8 : Update the Home Controller in the basic module
+## Step 8 : Update the Home Controller in the Basic Module
 
 The HomeController.cs file will need amending to pass a BasePageViewModel to the view as follows :
 
@@ -286,7 +286,7 @@ Upon inspecting the source code for the page for "/admin/management" the web app
 
 So thats the scripts and styles sorted but the only way to get to "/admin/management" is to type in the URL directly. So these next few steps will fix that.
 
-## Step 11 : Add a new Menu Item class to the shared project
+## Step 11 : Add a new Menu Item Class to the Shared Project
 
 Add MenuItem.cs to the shared project :
 
@@ -307,7 +307,7 @@ Add MenuItem.cs to the shared project :
 
 ```
 
-## Step 12 : Add a new IMenu interface to the shared project
+## Step 12 : Add a new IMenu Interface to the Shared Project
 
 Add IMenu.cs to the shared project :
 
@@ -319,14 +319,14 @@ Add IMenu.cs to the shared project :
 
 ```
 
-## Step 13 : Add Nomoni.Core.Helpers nuget package to shared project
+## Step 13 : Add Nomoni.Core.Helpers Nuget Package to the Shared Project
 
 
 ```
 Install-Package Nomoni.Core.Helpers
 ```
 
-## Step 14 : Add menu items to BasePageViewModel.cs
+## Step 14 : Add Menu Items to BasePageViewModel.cs
 
 
 ```
@@ -353,7 +353,7 @@ Install-Package Nomoni.Core.Helpers
 The PopulateMenu Extension will be created in the next step.
 
 
-## Step 15 : Add Extension new Extension method to BasePageModelExtensions.cs
+## Step 15 : Add new Extension Method to BasePageModelExtensions.cs
 
 
 ```
@@ -420,7 +420,7 @@ Update the "Nav" section of _Layout.cshtml to :
 ```
 
 
-## Step 17 : Add menu Items for Base Module
+## Step 17 : Add Menu Items for Base Module
 
 Add RegisterMenuItems.cs to the Registrations folder of the base module with: 
 
@@ -443,7 +443,7 @@ Add RegisterMenuItems.cs to the Registrations folder of the base module with:
     }
 ```
 
-## Step 18 : Add menu Items for Admin Module
+## Step 18 : Add Menu Items for Admin Module
 
 Add RegisterMenuItems.cs to the Registrations folder of the admin module with: 
 
