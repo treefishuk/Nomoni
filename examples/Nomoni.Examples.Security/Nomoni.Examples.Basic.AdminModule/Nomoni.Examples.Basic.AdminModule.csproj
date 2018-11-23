@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Views\**;wwwroot\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\admin-styles.css" />
+    <Content Remove="wwwroot\js\admin-scripts.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Nomoni.Mvc" Version="0.1.18246" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nomoni.Examples.Basic.Shared\Nomoni.Examples.Basic.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
