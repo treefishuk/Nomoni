@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -14,10 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nomoni.Example.Basic.Identity.EntityFramework\Nomoni.Examples.Basic.Identity.EntityFramework.csproj" />
     <ProjectReference Include="..\Nomoni.Examples.Basic.AdminModule\Nomoni.Examples.Basic.AdminModule.csproj" />
-    <ProjectReference Include="..\Nomoni.Examples.Basic.Identity.EntityFramework\Nomoni.Examples.Basic.Identity.EntityFramework.csproj" />
-    <ProjectReference Include="..\Nomoni.Examples.Basic.Identity\Nomoni.Examples.Basic.Identity.csproj" />
     <ProjectReference Include="..\Nomoni.Examples.Basic.Module\Nomoni.Examples.Basic.Module.csproj" />
   </ItemGroup>
 
