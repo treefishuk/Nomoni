@@ -25,6 +25,7 @@ namespace Nomoni.Examples.Basic
 
             services.UseNomoni();
 
+
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             services.AddAuthentication(options =>
@@ -54,9 +55,10 @@ namespace Nomoni.Examples.Basic
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseAuthentication();
+
             app.UseNomoni();
 
-            app.UseAuthentication();
 
             app.UseStaticFiles();
   
