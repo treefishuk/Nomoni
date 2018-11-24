@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Nomoni.Examples.Basic.Module.Models;
 using Nomoni.Examples.Basic.Shared;
@@ -46,5 +48,22 @@ namespace Nomoni.Examples.Basic.Module.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Logout()
+        {
+           
+            var user = HttpContext.User;
+            if (user?.Identity.IsAuthenticated == true)
+            {
+                // delete local authentication cookie
+                await HttpContext.SignOutAsync();
+            }
+          
+            return RedirectToAction(nameof(Index));
+
+        }
+
     }
 }

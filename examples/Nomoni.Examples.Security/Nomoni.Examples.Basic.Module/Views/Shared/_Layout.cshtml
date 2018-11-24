@@ -42,20 +42,10 @@
                     {
                         <li><a href="@menuitem.Url">@menuitem.Name</a></li>
                     }
+
                 </ul>
+                <partial name="_LoginPartial" />
             </div>
-
-
-            @{ 
-
-
-                if (User.Identity.IsAuthenticated)
-                {
-
-                    <b>Logged In</b>
-
-                }
-            }
 
         </div>
     </nav>

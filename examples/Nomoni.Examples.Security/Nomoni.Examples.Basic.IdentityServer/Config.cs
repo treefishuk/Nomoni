@@ -1,5 +1,6 @@
 ﻿using IdentityServer4;
 using IdentityServer4.Models;
+using System;
 using System.Collections.Generic;
 
 namespace Nomoni.Examples.Basic.IdentityServer
@@ -16,46 +17,12 @@ namespace Nomoni.Examples.Basic.IdentityServer
             };
         }
 
-        public static IEnumerable<ApiResource> GetApiResources()
-        {
-            return new List<ApiResource>
-            {
-                new ApiResource("api1", "My API")
-            };
-        }
-
         // clients want to access resources (aka scopes)
         public static IEnumerable<Client> GetClients()
         {
             // client credentials client
             return new List<Client>
             {
-                //new Client
-                //{
-                //    ClientId = "client",
-                //    AllowedGrantTypes = GrantTypes.ClientCredentials,
-
-                //    ClientSecrets =
-                //    {
-                //        new Secret("secret".Sha256())
-                //    },
-                //    AllowedScopes = { "api1" }
-                //},
-
-                //// resource owner password grant client
-                //new Client
-                //{
-                //    ClientId = "ro.client",
-                //    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
-
-                //    ClientSecrets =
-                //    {
-                //        new Secret("secret".Sha256())
-                //    },
-                //    AllowedScopes = { "api1" }
-                //},
-
-                // OpenID Connect hybrid flow and client credentials client (MVC)
                 new Client
                 {
                     ClientId = "mvc",
@@ -69,8 +36,8 @@ namespace Nomoni.Examples.Basic.IdentityServer
                         new Secret("secret".Sha256())
                     },
 
-                    RedirectUris = { "https://localhost:44358/signin-oidc" },
-                    PostLogoutRedirectUris = { "https://localhost:44358/signout-callback-oidc" },
+                    RedirectUris = { "https://localhost:" + Environment.GetEnvironmentVariable("Nomoni_Port") + "/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:" + Environment.GetEnvironmentVariable("Nomoni_Port") + "/signout-callback-oidc" },
 
                     AllowedScopes =
                     {

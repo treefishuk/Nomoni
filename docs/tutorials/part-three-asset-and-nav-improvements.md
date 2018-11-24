@@ -2,7 +2,13 @@
 
 ## Prerequisites
 
-To start this tutorial you will need to have completed In [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module). The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
+To start this tutorial you will need to have completed parts 1 & 2: 
+
+
+- [Part 1 : Basic Web App with single module](https://treefish.uk/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module)
+- [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module)
+
+The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
 
 ## Outcome
 

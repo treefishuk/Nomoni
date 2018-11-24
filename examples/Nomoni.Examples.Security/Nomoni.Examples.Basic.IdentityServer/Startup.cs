@@ -27,13 +27,6 @@ namespace Nomoni.Examples.Basic.IdentityServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.Configure<CookiePolicyOptions>(options =>
-            //{
-            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            //    options.CheckConsentNeeded = context => true;
-            //    options.MinimumSameSitePolicy = SameSiteMode.None;
-            //});
-
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
@@ -46,7 +39,6 @@ namespace Nomoni.Examples.Basic.IdentityServer
                 .AddDeveloperSigningCredential()
                 .AddInMemoryPersistedGrants()
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddAspNetIdentity<IdentityUser>();
 
@@ -58,7 +50,6 @@ namespace Nomoni.Examples.Basic.IdentityServer
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
             }
             else
@@ -68,7 +59,6 @@ namespace Nomoni.Examples.Basic.IdentityServer
 
             app.UseStaticFiles();
 
-            // app.UseAuthentication(); // not needed, since UseIdentityServer adds the authentication middleware
             app.UseIdentityServer();
 
             app.UseMvc(routes =>

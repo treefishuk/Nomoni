@@ -25,9 +25,6 @@ namespace Nomoni.Examples.Basic
 
             services.UseNomoni();
 
-
-            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
-
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -38,7 +35,7 @@ namespace Nomoni.Examples.Basic
             {
                 options.SignInScheme = "Cookies";
 
-                options.Authority = "https://localhost:44334";
+                options.Authority = "https://localhost:" + Environment.GetEnvironmentVariable("IdentityServer_Port");
                 options.RequireHttpsMetadata = false;
                     
                 options.ClientId = "mvc";
@@ -58,7 +55,6 @@ namespace Nomoni.Examples.Basic
             app.UseAuthentication();
 
             app.UseNomoni();
-
 
             app.UseStaticFiles();
   
