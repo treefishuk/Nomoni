@@ -4,13 +4,13 @@ using Nomoni.Data.Abstractions;
 
 namespace Nomoni.Data.EntityFramework
 {
-    public class StorageRegistration : IConfigureServicesAction
+    public static class StorageRegistration
     {
-        public int Priority => 10;
-
-        public void Execute(IServiceCollection serviceCollection)
+        public static void UseEFCoreStorage(this IServiceCollection services)
         {
-            serviceCollection.AddScoped<IStorage, StorageImplementation>();
+            services.AddScoped<IStorage, StorageImplementation>();
+
         }
+
     }
 }
