@@ -1,16 +1,17 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Nomoni.Core.Abstractions;
 using Nomoni.Data.Abstractions;
 
 namespace Nomoni.Data.EntityFramework
 {
-    public static class StorageRegistration
+    public class StorageRegistration : IConfigureServicesAction
     {
-        public static void UseEFCoreStorage(this IServiceCollection services)
+        public int Priority => 1000;
+
+        public void Execute(IServiceCollection serviceCollection)
         {
-            services.AddScoped<IStorage, StorageImplementation>();
-
+            serviceCollection.AddScoped<IStorage, StorageImplementation>();
         }
-
     }
 }
