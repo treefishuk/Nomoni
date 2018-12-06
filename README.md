@@ -57,10 +57,11 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 - [Part 1 : ASP Web App With Single Module](https://treefish.uk/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module) 
 - [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module) 
 - [Part 3 : Asset and Navigation Improvements](https://treefish.uk/nomoni/docs/tutorials/part-three-asset-and-nav-improvements)
+- [Part 4 : Adding Security](https://treefish.uk/nomoni/docs/tutorials/part-four-security)
+
 
 ### Tutorials Coming Soon..
 
-- Part 4 : Adding Security
 - Part 5 : Modular Entity Framework
 - Part 6 : Integrating SaasKit
 
@@ -69,6 +70,7 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 - [Part 1 : ASP Web App With Single Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic/) 
 - [Part 2 : ASP Web App With Second Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.SecondModule/) 
 - [Part 3 : Asset and Navigation Improvements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements/) 
+- [Part 4 : Adding Security](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Security/) 
 
 ### Support
 
