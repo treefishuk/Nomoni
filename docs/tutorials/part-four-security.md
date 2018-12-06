@@ -1,4 +1,4 @@
-# Getting Started - Part 4 : Adding Security with Identity Server 4
+# Getting Started - Part 4 : Adding Security
 
 ## Prerequisites
 
@@ -12,372 +12,130 @@ The result of which is a basic MVC .net core app with a two modules and modular 
 
 ## Outcome
 
-The aim of this tutorial is to add authentication to the solution. In this tutorial Identity Server is going to be used. The reasons for this are:
+The aim of this tutorial is to add authentication to the solution.
 
-- Separation of concerns - The bulk of the authentication work will be in a separate project.   
-- ASP Identity is now a Razor UI library - The scaffolding is no longer based on the MVC pattern and requires a custom implementation.
-- Keep Entity Framework isolated. Identity by default likes to play with Entity Framework and that is getting included in a later tutorial, so don't want to unnecessarily jump ahead.
-- Re-usability, the authentication project could be used by SPA applications and mobile applications in the future.
+## Step 1 : Replace the original master project
 
-## Step 1 : Add a new .net core MVC web app
-
-Add a new .net core project to the solution for identity server.
+Delete the original master project. Then add a new .net core project to the solution.
 
 ![Empty Project](../images/MVC-App.PNG "MVC App")
 
 **Make sure to change Authentication to "Individual user accounts"**
 
+![individual accounts](../images/individual-accounts.png "individual accounts")
 
-## Step 2 : Identity Server nuget package
+## Step 2 : Delete the things!
 
-Install the IdentityServer4.AspNetIdentity in the new project
+Delete the following folders and content : 
 
-```
-Install-Package IdentityServer4.AspNetIdentity
-```
+- wwwroot
+- Controllers
+- Models
+- Views
 
+**Make sure to leave the areas folder.**
 
-## Step 3 : Add a Config.cs file
+## Step 3 : Install Nomoni/MVC nuget package
 
-Add a class to the new project that looks like this:
-
-```
-    public class Config
-    {
-        // scopes define the resources in your system
-        public static IEnumerable<IdentityResource> GetIdentityResources()
-        {
-            return new List<IdentityResource>
-            {
-                new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
-            };
-        }
-
-        // clients want to access resources (aka scopes)
-        public static IEnumerable<Client> GetClients()
-        {
-            // client credentials client
-            return new List<Client>
-            {
-                new Client
-                {
-                    ClientId = "mvc",
-                    ClientName = "MVC Client",
-                    AllowedGrantTypes = GrantTypes.Implicit,
-
-                    RequireConsent = false,
-
-                    ClientSecrets =
-                    {
-                        new Secret("secret".Sha256())
-                    },
-
-                    RedirectUris = { "https://localhost:" + Environment.GetEnvironmentVariable("Nomoni_Port") + "/signin-oidc" },
-                    PostLogoutRedirectUris = { "https://localhost:" + Environment.GetEnvironmentVariable("Nomoni_Port") + "/signout-callback-oidc" },
-
-                    AllowedScopes =
-                    {
-                        IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
-                    },
-
-                    AllowOfflineAccess = true
-                }
-            };
-        }
-    }
-```
-
-Make sure to add an environment variable named Nomoni_Port to the project, with the value of the Identity Server Port.
-
-## Step 4 : Update Startup.cs in Identity Server project
-
-Update the Startup.cs in the Identity Server project to look like this:
+Install the Nomoni.Mvc package in the new master project
 
 ```
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddInMemoryPersistedGrants()
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryClients(Config.GetClients())
-                .AddAspNetIdentity<IdentityUser>();
-
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
-
-            app.UseStaticFiles();
-
-            app.UseIdentityServer();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
-        }
-    }
+Install-Package Nomoni.Mvc
 ```
 
+## Step 4 : Update Startup.cs
 
-## Step 5 : Update Startup.cs in Main project
-
-Update the Startup.cs in the Main project to look like this:
-
-```
-    public class Startup
-    {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
-        {
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            services.UseNomoni();
-
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = "oidc";
-            })
-            .AddCookie()
-            .AddOpenIdConnect("oidc", options =>
-            {
-                options.SignInScheme = "Cookies";
-
-                options.Authority = "https://localhost:" + Environment.GetEnvironmentVariable("IdentityServer_Port");
-                options.RequireHttpsMetadata = false;
-                    
-                options.ClientId = "mvc";
-                options.SaveTokens = true;
-            });
-
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseAuthentication();
-
-            app.UseNomoni();
-
-            app.UseStaticFiles();
-  
-        }
-    }
-```
-
-Note :  The **order is really important**.  "UseAuthentication" **MUST** appear before "UseNomoni"
-
-Also make sure to add the IdentityServer_Port environment variable.
-
-
-## Step 6 : Add Authorize attribute to controller
-
-On the management controller add the Authorize attribute.  : 
+Add the Nomoni references to the startup class:              
 
 ```
+services.UseNomoni();
+```
 
+And replace:
+
+```
+app.UseMvc(routes =>
+{
+    routes.MapRoute(
+        name: "default",
+        template: "{controller=Home}/{action=Index}/{id?}");
+});
+```
+ With : 
+
+```
+app.UseNomoni();
+```
+
+## Step 5 : Add Module References
+
+Add the module references to the new master project
+
+## Step 6 : Add Authorize Attribute
+
+In the admin model add the Authorize Attribute to the ManagementController
+
+```
     [Authorize]
     public class ManagementController : Controller
-
-```
-
-## Step 7 : Build and test
-
-Try and go to the management section. You should get redirected to the Identity Server web app. Enter a valid user and login and you should get redirected back to the Nomoni web app and now be logged in.
-
-Note : You may want to create a user first from the Identity Server app directly. You will also need to seed the database which you should be prompted with a big button to do. 
-
-
-
-## Step 8 : Add a Logout button
-
-The HomeController.cs file will need amending to pass a BasePageViewModel to the view as follows :
-
-```
-    public class HomeController : Controller
     {
-        public IActionResult Index()
-        {
-            var model = new BasePageViewModel();
+       // controller content not shown...
+    }
+```
 
-            return View(model);
-        }
+## Step 7 : Build and run the new master project
 
-        public IActionResult About()
-        {
+Build and run the new master project, and try to access the management page in the menu...
 
-            var model = new BasePageViewModel();
+At this point you will see an error message. The _Layout.cshtml in the main module expects a *BaseViewModel* to be passed to the view. The Login page however in the Razor library that Identity now uses expects a *LoginModel* to be passed to the view.   
 
-            ViewData["Message"] = "Your application description page.";
+In the next few steps we will address this issue.
 
-            return View(model);
-        }
 
-        public IActionResult Contact()
-        {
+## Step 8 : Abstract BasePageViewModel to an Interface 
 
-            var model = new BasePageViewModel();
+In the shared project create an interface for the BaseViewModel class as follows:
 
-            ViewData["Message"] = "Your contact page.";
-
-            return View(model);
-        }
-
-        public IActionResult Privacy()
-        {
-            var model = new BasePageViewModel();
-
-            return View(model);
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+```
+    public interface IBasePageViewModel
+    {
+        IEnumerable<MenuItem> MenuItems { get; set; }
+        List<string> PageScripts { get; set; }
+        List<string> PageStyles { get; set; }
+        string PageTitle { get; set; }
     }
 
 ```
 
-## Step 9 : Launch App
-
-Upon inspecting the source code for the page for "/admin/management" the web app should now show the stylesheet in the head of the web page and the script at the bottom of the page. This now means that the mosdule scripts could depend on JQuery or any other library framework loaded before the module scripts in _layout.cshtml. 
-
-
-## Step 10 : Making the Navigation Dynamic
-
-So thats the scripts and styles sorted but the only way to get to "/admin/management" is to type in the URL directly. So these next few steps will fix that.
-
-## Step 11 : Add a new Menu Item Class to the Shared Project
-
-Add MenuItem.cs to the shared project :
+Update the expected model for the _Layout.cshtml to the new interface:
 
 ```
-    public class MenuItem
-    {
-        public string Name { get; }
-        public string Url { get; }
-        public int Position { get; }
-       
-        public MenuItem(string name, int position, string url)
-        {
-            this.Name = name;
-            this.Position = position;
-            this.Url = url;
-        }
-    }
-
+@model Nomoni.Examples.Basic.Shared.IBasePageViewModel
 ```
 
-## Step 12 : Add a new IMenu Interface to the Shared Project
+## Step 9 : Update extensions
 
-Add IMenu.cs to the shared project :
-
-```
-    public interface IMenu
-    {
-        IEnumerable<MenuItem> MenuItems { get; }
-    }
-
-```
-
-## Step 13 : Add Nomoni.Core.Helpers Nuget Package to the Shared Project
-
-
-```
-Install-Package Nomoni.Core.Helpers
-```
-
-## Step 14 : Add Menu Items to BasePageViewModel.cs
-
-
-```
-    public class BasePageViewModel
-    {
-        public BasePageViewModel()
-        {
-            PageScripts = new List<string>();
-            PageStyles = new List<string>();
-            this.PopulateMenu();
-        }
-
-        public string PageTitle { get; set; }
-
-        public List<string> PageScripts { get; set; }
-
-        public List<string> PageStyles { get; set; }
-
-        public IEnumerable<MenuItem> MenuItems { get; set; }
-
-    }
-```
-
-The PopulateMenu Extension will be created in the next step.
-
-
-## Step 15 : Add new Extension Method to BasePageModelExtensions.cs
-
+The *BasePageModelExtensions* class will need updating to work with *IBasePageViewModel*:
 
 ```
     public static class BasePageViewModelExtensions
     {
 
-        public static T AddPageScript<T>(this T viewModel, string url) where T : BasePageViewModel
+        public static T AddPageScript<T>(this T viewModel, string url) where T : IBasePageViewModel
         {
             viewModel.PageScripts.Add(url);
 
             return viewModel;
         }
 
-        public static T AddPageStyles<T>(this T viewModel, string url) where T : BasePageViewModel
+        public static T AddPageStyles<T>(this T viewModel, string url) where T : IBasePageViewModel
         {
             viewModel.PageScripts.Add(url);
 
             return viewModel;
         }
 
-        public static T PopulateMenu<T>(this T viewModel) where T : BasePageViewModel
+        public static T PopulateMenu<T>(this T viewModel) where T : IBasePageViewModel
         {
             List<MenuItem> menuItems = new List<MenuItem>();
 
@@ -392,86 +150,90 @@ The PopulateMenu Extension will be created in the next step.
     }
 ```
 
+## Step 10 : Add Identity Scaffolding
 
-## Step 16 : Update _Layout.cshtml again
+Right click the new master project then go to 
 
-Update the "Nav" section of _Layout.cshtml to : 
+*Add --> New Scaffolded item... --> Identity*
 
-```
+![Identity Scaffolding](../images/identity-scafolding.png "Identity Scaffolding")
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+Check "Override all" and select the Data Context from the dropdown
 
-                    @foreach (var menuitem in Model.MenuItems.OrderBy(x => x.Position))
-                    {
-                        <li><a href="@menuitem.Url">@menuitem.Name</a></li>
-                    }
-                </ul>
-            </div>
-        </div>
-    </nav>
-```
+![Identity Scaffolding](../images/identity-scafolding-2.png "Identity Scaffolding Options")
+
+Click *Add**
+
+This should add all the default identity razor files and associated code to :
+
+*Areas --> Identity --> Pages*
+
+**Note :  If this fails try saving any open files, closing and reopening the solution.**
 
 
-## Step 17 : Add Menu Items for Base Module
+## Step 11: Add new class for Identity class to inherit from
 
-Add RegisterMenuItems.cs to the Registrations folder of the base module with: 
+All the Identity razor pages inherit from *Microsoft.AspNetCore.Mvc.RazorPages.PageModel*
+
+But for _Layout.cshtml they need to inherit from *IBasePageViewModel*
+
+So we need the best of both worlds... 
+
+To do that create a new class in the new master project that looks as follows: 
 
 ```
 
-    public class RegisterMenuItems : IMenu
+    public class RazorBasePageModel : PageModel, IBasePageViewModel
     {
-        public IEnumerable<MenuItem> MenuItems
+        public RazorBasePageModel()
         {
-            get
-            {
-                return new MenuItem[]
-                {
-                            new MenuItem("Home", 100, "/"),
-                            new MenuItem("About", 120, "/home/about"),
-                            new MenuItem("Contact", 130, "/home/contact")
-                };
-            }
+            MenuItems = new List<MenuItem>();
+            PageScripts = new List<string>();
+            PageStyles = new List<string>();
+            this.PopulateMenu();
         }
+
+        public IEnumerable<MenuItem> MenuItems { get; set; }
+        public List<string> PageScripts { get; set; }
+        public List<string> PageStyles { get; set; }
+        public string PageTitle { get; set; }
     }
-```
-
-## Step 18 : Add Menu Items for Admin Module
-
-Add RegisterMenuItems.cs to the Registrations folder of the admin module with: 
 
 ```
 
-    public class RegisterMenuItems : IMenu
+## Step 12 : Update all references for PageModel to new RazorBasePageModel
+
+This steps a bit tedious...
+
+All references to *PageModel* in the Identity razor pages code needs updating to *RazorBasePageModel*
+
+Doing a find and replace in *Areas --> Identity --> Pages* is the easiest way to do that.
+
+If you try a build after that it will however fail because the files have not got the namespace for the RazorBasePageModel. Go through each of the files listed as having errors and add the required using statement to remedy that.
+
+To get a page title for the pages to show up the title will need to be set in the constructor of every identity page constructor too:
+
+
+```
+    public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
     {
-        public IEnumerable<MenuItem> MenuItems
-        {
-            get
-            {
-                return new MenuItem[]
-                {
-                            new MenuItem("Management", 200, "/admin/management")
-                };
-            }
-        }
+        _signInManager = signInManager;
+        _logger = logger;
+        PageTitle = "Login";
     }
+
 ```
 
+## Step 13 : One more time!
+
+Build and run the solution and everything should now be working! Huzzah! 
+
+**Note: If you try to register a user it will prompt you to create the database using migrations**
 
 ## The Source Code for this Tutorial can be found
 
-[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements)
+[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Security](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Security)
 
 ## Next Steps
 
-In the Next Tutorial we will fix the issues with the css and javascript placement, and also amend the navigation bar to include the new admin module.
+The issue with the current state of things is that EF Core is currently a tightly coupled dependency in the main project. We will fix this in the next tutorial.

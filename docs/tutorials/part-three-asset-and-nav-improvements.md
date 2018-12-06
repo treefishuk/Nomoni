@@ -477,4 +477,7 @@ Add RegisterMenuItems.cs to the Registrations folder of the admin module with:
 
 ## Next Steps
 
-In the Next Tutorial we will fix the issues with the css and javascript placement, and also amend the navigation bar to include the new admin module.
+In the Next Tutorial we will look at adding security to the solution.
+
+[Part 4 : Security](/nomoni/docs/tutorials/part-four-security)
+
