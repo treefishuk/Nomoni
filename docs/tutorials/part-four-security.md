@@ -162,7 +162,7 @@ Check "Override all" and select the Data Context from the dropdown
 
 ![Identity Scaffolding](../images/identity-scafolding-2.png "Identity Scaffolding Options")
 
-Click *Add**
+Click *Add*
 
 This should add all the default identity razor files and associated code to :
 
@@ -211,8 +211,7 @@ Doing a find and replace in *Areas --> Identity --> Pages* is the easiest way to
 
 If you try a build after that it will however fail because the files have not got the namespace for the RazorBasePageModel. Go through each of the files listed as having errors and add the required using statement to remedy that.
 
-To get a page title for the pages to show up the title will need to be set in the constructor of every identity page constructor too:
-
+To get a page title for the pages to show up the title will need to be set in the constructor of every identity page:
 
 ```
     public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
