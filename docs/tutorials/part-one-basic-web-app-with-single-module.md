@@ -5,8 +5,6 @@ date:   2018-12-07 22:00:00
 categories: beginner
 ---
 
-# Getting Started - Part 1 : Basic Web App with single module  
-
 Welcome to part one of the getting started tutorials. This tutorial describes the process of creating a basic web app using Nomoni. The final result will be exactly what you would excpect to see from a default .net core web app template.
 
 ## Step 1 : Create empty .net core web application
