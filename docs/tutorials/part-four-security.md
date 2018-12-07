@@ -1,8 +1,10 @@
 ---
-layout: post
+layout: doc
 title:  "Getting Started - Part 4 : Adding Security"
 date:   2018-12-07 22:00:00
 categories: beginner
+published: true
+
 ---
 
 ## Prerequisites

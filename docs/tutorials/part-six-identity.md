@@ -1,4 +1,10 @@
-# Getting Started - Part 4 : Adding Security with Identity Server 4
+---
+layout: doc
+title:  "Adding Security with Identity Server 4"
+date:   2018-12-07 22:00:00
+categories: beginner
+published: false
+---
 
 ## Prerequisites
 

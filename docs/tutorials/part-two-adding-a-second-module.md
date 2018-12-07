@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: doc
 title:  "Getting Started - Part 2 : Adding Another Module"
 date:   2018-12-07 22:00:00
 categories: beginner tutorial
+published: true
 ---
 
 ## Prerequisites
