@@ -25,7 +25,7 @@ description: Nomoni Project
 # baseurl is the subpath of your site, e.g. /blog
 baseurl: ""
 
-# This is the base URL for your website e.g. http://thebatman.com
+# This is the base URL for your website e.g. https://treefish.uk/nomoni
 url: ""
 
 # URL to site image. Site image is used when your site is shared via social media
