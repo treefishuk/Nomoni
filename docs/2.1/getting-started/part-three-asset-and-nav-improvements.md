@@ -26,7 +26,7 @@ The aim of this tutorial is to improve the rendering of the scripts from modules
 
 This will form the basic of our new module.
 
-![Shared project](../images/standard-lib.png "Shared project")
+![Shared project](../../images/standard-lib.png "Shared project")
 
 
 ## Step 2 : Add a new BasePageViewModel Class
