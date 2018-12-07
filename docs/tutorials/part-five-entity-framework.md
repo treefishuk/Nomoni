@@ -1,4 +1,9 @@
-# Getting Started - Part 4 : Adding Security with Identity Server 4
+---
+layout: post
+title:  "Getting Started - Part 5 : Entity Framework"
+date:   2018-12-07 22:00:00
+categories: beginner
+---
 
 ## Prerequisites
 
