@@ -59,7 +59,6 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 - [Part 3 : Asset and Navigation Improvements](https://treefish.uk/nomoni/docs/tutorials/part-three-asset-and-nav-improvements)
 - [Part 4 : Adding Security](https://treefish.uk/nomoni/docs/tutorials/part-four-security)
 
-
 ### Tutorials Coming Soon..
 
 - Part 5 : Modular Entity Framework
