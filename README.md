@@ -1,5 +1,3 @@
-# Nomoni
-
 ![alt text](https://treefish.visualstudio.com/Nomoni/_apis/build/status/Nomoni%20CI%20Build "build status")
 
 ## Introduction
