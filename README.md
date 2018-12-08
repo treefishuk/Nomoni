@@ -46,7 +46,7 @@ This provides EFCore implementation of the interfaces in Nomoni.Data.Abstraction
 
 ## What does Nomoni mean?
 
-So the idea with this is that it is friendly sounding abbreviated(ish) version of "No Monoliths". It also sounds like it should be a thing even though I'm pretty sure its not a real word!
+So the idea with this is that it is friendly sounding abbreviated(ish) version of "No Monoliths". Or if you pronounce it differently then it can sound like "no money" as in free and open source which the project is. It's basically a made up word.
 
 ## Getting Started
 
