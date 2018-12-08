@@ -61,6 +61,7 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 
 - Part 5 : Modular Entity Framework
 - Part 6 : Integrating SaasKit
+- Part 7 : Integrating Identity Server
 
 ### Sample projects on GitHub:
 
