@@ -80,5 +80,7 @@ exclude:
 #   - vendor/ruby/
 
 collections:
-  - getting-started
-  - advanced-tutorials
+  getting_started : 
+  permalink: /:collection/:name
+  advanced_tutorials:
+  permalink: /:collection/:name
