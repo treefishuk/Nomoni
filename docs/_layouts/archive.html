@@ -1,0 +1,36 @@
+---
+layout: page
+---
+
+{% comment %}
+  {{content}} is grabbed from the file `archive.html`
+{% endcomment %}
+
+{{ content }}
+
+{% for post in site.posts %}
+  {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+  {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+  {% capture prev_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+  {% capture prev_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+
+  {% if forloop.first %}
+    <h2>{{ this_month }} {{ this_year }}</h2>
+    <ul>
+  {% endif %}
+  <li><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></li>
+
+  {% unless forloop.last %}
+    {% if this_year != prev_year %}
+      </ul>
+      <h3>{{ prev_month }} {{ prev_year }}</h3>
+      <ul>
+    {% else %}
+      {% if this_month != prev_month %}
+        </ul>
+        <h3>{{ prev_month }} {{ prev_year }}</h3>
+        <ul>
+      {% endif %}
+    {% endif %}
+  {% endunless %}
+{% endfor %}

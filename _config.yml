@@ -1,6 +1,3 @@
-remote_theme: treefishuk/nomoni-theme
-
-
 # The _config.yml file is used to define site wide variables that can be used
 # throughout your Jekyll project. The variables defined here can be access via
 # the site variable like this {{ site.title }}. Additionally, there are some

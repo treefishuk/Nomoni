@@ -1,0 +1,177 @@
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "root";
+@import "reboot";
+@import "type";
+@import "images";
+@import "code";
+@import "grid";
+/*@import "tables";*/
+/*@import "forms";*/
+@import "buttons";
+@import "transitions";
+/*@import "dropdown";
+@import "button-group";
+@import "input-group";
+@import "custom-forms";*/
+@import "nav";
+@import "navbar";
+@import "card";
+/*@import "breadcrumb";
+@import "pagination";
+@import "badge";
+@import "jumbotron";
+@import "alert";
+@import "progress";*/
+@import "media";
+@import "list-group";
+/*@import "close";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";*/
+@import "utilities";
+/*@import "print";*/
+
+body {
+    padding-top: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 70px;
+
+    > main {
+        @extend .row;
+
+        > nav {
+            @extend .col-lg-3;
+
+            > ul {
+
+                @extend .nav;
+                @extend .flex-column;
+                padding: 2rem 0;
+
+                li {
+                    @extend .nav-item;
+                }
+
+                height: 100%;
+                box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+            }
+        }
+
+        article {
+            @extend .col-lg-9;
+        }
+
+
+        > div {
+            padding: 3rem;
+            width: 100%;
+        }
+
+        > footer {
+            background: #f1f1f1;
+            width: 100%;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+        }
+    }
+
+    > header {
+        @extend .navbar;
+        background: #286fb7;
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+
+        a {
+            color: #fff;
+
+            &:hover, &:active {
+                color: #efefef
+            }
+
+
+        }
+
+    }
+}
+
+
+
+img {
+    @extend .img-fluid;
+}
+
+
+.highlighter-rouge {
+    background: #f5f5f5;
+    padding: 1rem;
+    margin: 1rem 0;
+
+    pre {
+        white-space: pre-line;
+        margin: 0;
+    }
+}
+
+h1 {
+    margin-top: 3rem;
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 15px;
+
+    .card {
+        @extend .col-lg-4;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 1rem;
+        border: 15px solid #fff;
+
+        h2 {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.index-header {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+
+    h1 {
+        font-size: 4rem;
+        color: #286fb7;
+    }
+
+    i {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    a {
+        @extend .btn;
+        margin-bottom: 1rem;
+
+        &:first-of-type {
+            @extend .btn-outline-primary;
+        }
+
+        &:last-of-type {
+            @extend .btn-primary;
+        }
+
+        @media(min-width: 992px) {
+            padding: 0.8rem 3rem;
+        }
+    }
+}

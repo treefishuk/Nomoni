@@ -1,0 +1,99 @@
+---
+layout: default
+---
+
+<header class="index-header">
+    <h1>
+        Nomoni
+    </h1>
+    <i>Build modular MVC solutions, separating concerns and decoupling dependencies.</i>
+
+    <a href="{{ site.project_url | escape }}">View on GitHub</a>
+    <a href="{{ site.docs_url | escape }}">Read Docs</a>
+</header>
+
+<div class="cards">
+    <div class="card">
+
+        <h2>Basic Installation</h2>
+
+        <p>
+
+
+            <div class="highlighter-rouge">
+                <div class="highlight">
+                    <pre class="highlight">
+                    <code>Install-Package Nomoni.Mvc</code>
+                    </pre>
+                </div>
+            </div>
+
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Getting Started</h2>
+
+        <ul>
+
+            {% for doc in site.getting_started %}
+            <li><a href="{{ doc.url }}">{{ doc.title }}</a></li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+    <div class="card">
+
+        <h2>Advanced Tutorials</h2>
+
+        {% for doc in site.advanced_tutorials %}
+        {% if doc.category == "advanced-tutorial" %}
+        <li><a href="{{ doc.url }}">{{ doc.title }}</a></li>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+
+</div>
+
+
+<div class="cards">
+    <div class="card">
+
+        <h2>Support</h2>
+
+        <p>
+            Please feel free to raise issues on the <a href="https://github.com/treefishuk/nomoni/">github page</a>.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>Example projects</h2>
+
+        coming soon..
+
+    </div>
+
+
+
+
+    <div class="card">
+
+        <h2>Why use Nomoni?</h2>
+
+        <ul>
+            <li>Split up a .net core MVC app into separate manageable modules</li>
+            <li>Auto register implementations of interfaces</li>
+            <li>Adhere to SOLID principles</li>
+            <li>Keep things organized and tidy</li>
+        </ul>
+    </div>
+
+</div>
