@@ -38,7 +38,7 @@ docs_url: "https://treefish.uk/Nomoni/docs/2.1/getting-started/part-one-basic-we
 # Sizes are references from https://dev.twitter.com/cards/types/summary#reference
 # You can see image being referenced in _includes/og-meta.html and
 # _includes/twitter-meta.html
-image: https://location-of-image.com
+# image: https://location-of-image.com
 
 # Twitter Open Graph meta
 # Twitter handle for your site, if it has a separate handle. If not, then use
