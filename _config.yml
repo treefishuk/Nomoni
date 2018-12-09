@@ -79,6 +79,8 @@ exclude:
 
 collections:
   getting_started : 
-  permalink: /getting-started/:name
+      output: true
+      permalink: /getting-started/:name
   advanced_tutorials:
-  permalink: /advanced_tutorials/:name
+      output: true
+      permalink: /advanced-tutorials/:name
