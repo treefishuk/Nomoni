@@ -3,6 +3,7 @@
 # the site variable like this {{ site.title }}. Additionally, there are some
 # things that are defined to help configure Jekyll such as the plugins and excludes
 # variables.
+remote_theme: treefishuk/nomoni-theme
 
 # Title for your site
 # Default title that should be used if a page's title isn't defined
@@ -78,6 +79,6 @@ exclude:
 
 collections:
   getting_started : 
-  permalink: /:collection/:name
+  permalink: /getting-started/:name
   advanced_tutorials:
-  permalink: /:collection/:name
+  permalink: /advanced_tutorials/:name
