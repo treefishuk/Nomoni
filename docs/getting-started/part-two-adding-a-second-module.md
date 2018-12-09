@@ -23,7 +23,7 @@ We are going to add a second module to the solution. The second module will be a
 
 This will form the basic of our new module.
 
-![Empty Project](../../images/MVC-App.PNG "MVC App")
+![Empty Project](../images/MVC-App.PNG "MVC App")
 
 
 ## Step 2 : Install Nomoni.Mvc nuget package
@@ -108,11 +108,11 @@ This time the module we are creating will be for an "admin" area of the website.
 
 Create a new empty controller
 
-![Empty Controller](../../images/empty-controller.png "Empty Controller")
+![Empty Controller](../images/empty-controller.png "Empty Controller")
 
 And name it "ManagementController"
 
-![Management Controller](../../images/management-controller.png "Management Controller")
+![Management Controller](../images/management-controller.png "Management Controller")
 
 Which should produce : 
 
@@ -147,7 +147,7 @@ In the models folder create a new view model called "ManagmentViewModel"
 
 In wwwroot -> css add a new stylesheet called "admin-styles"
 
-![Admin Styles](../../images/admin-styles.png "Admin Styles")
+![Admin Styles](../images/admin-styles.png "Admin Styles")
 
 
 Update it's contents to the following:
@@ -165,7 +165,7 @@ Update it's contents to the following:
 
 In wwwroot -> js add a new javascript file called "admin-scripts"
 
-![Admin Scripts](../../images/admin-scripts.png "Admin Scripts")
+![Admin Scripts](../images/admin-scripts.png "Admin Scripts")
 
 
 Update it's contents to the following:
@@ -181,7 +181,7 @@ document.getElementById("button").addEventListener("click", function (e) {
 
 In Views -> Management add a new view called Index
 
-![Index View](../../images/index-view.png "Index View")
+![Index View](../images/index-view.png "Index View")
 
 Update it's contents to the following:
 
@@ -269,11 +269,11 @@ Add the module created as a reference in the master project, build and run.
 
 If the steps were successful then you should have a classic ASP .net Core App running
 
-![Empty Project](../../images/basic-webpage.PNG "MVC App")
+![Empty Project](../images/basic-webpage.PNG "MVC App")
 
 This time you should be able to access content from the new admin module by going to "/admin/management" which should look like this :
 
-![Management Module](../../images/management-module.png "Management Module")
+![Management Module](../images/management-module.png "Management Module")
 
 Clicking on the button should produce the alert message, and the title has been styled with the admin stylesheet.
 

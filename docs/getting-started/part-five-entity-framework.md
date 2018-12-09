@@ -25,7 +25,7 @@ The aim of this tutorial is to add access to add storage to the project:
 
 Add a new .net core project to the solution for identity server.
 
-![Empty Project](../../images/MVC-App.PNG "MVC App")
+![Empty Project](../images/MVC-App.PNG "MVC App")
 
 **Make sure to change Authentication to "Individual user accounts"**
 

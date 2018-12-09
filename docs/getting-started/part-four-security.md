@@ -26,11 +26,11 @@ The aim of this tutorial is to add authentication to the solution.
 
 Delete the original master project. Then add a new .net core project to the solution.
 
-![Empty Project](../../images/MVC-App.PNG "MVC App")
+![Empty Project](../images/MVC-App.PNG "MVC App")
 
 **Make sure to change Authentication to "Individual user accounts"**
 
-![individual accounts](../../images/individual-accounts.png "individual accounts")
+![individual accounts](../images/individual-accounts.png "individual accounts")
 
 ## Step 2 : Delete the things!
 
@@ -164,11 +164,11 @@ Right click the new master project then go to
 
 *Add --> New Scaffolded item... --> Identity*
 
-![Identity Scaffolding](../../images/identity-scafolding.png "Identity Scaffolding")
+![Identity Scaffolding](../images/identity-scafolding.png "Identity Scaffolding")
 
 Check "Override all" and select the Data Context from the dropdown
 
-![Identity Scaffolding](../../images/identity-scafolding-2.png "Identity Scaffolding Options")
+![Identity Scaffolding](../images/identity-scafolding-2.png "Identity Scaffolding Options")
 
 Click *Add*
 

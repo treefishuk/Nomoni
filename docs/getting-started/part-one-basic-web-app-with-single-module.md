@@ -13,7 +13,7 @@ Welcome to part one of the getting started tutorials. This tutorial describes th
 
 ## Step 1 : Create empty .net core web application
 
-![Empty Project](../../images/Empty-Project.PNG "Empty Project")
+![Empty Project](../images/Empty-Project.PNG "Empty Project")
 
 
 ## Step 2 : Install Nomoni/MVC nuget package
@@ -59,7 +59,7 @@ Install-Package Nomoni.Mvc
 
 This will form the basic of our first module.
 
-![Empty Project](../../images/MVC-App.PNG "MVC App")
+![Empty Project](../images/MVC-App.PNG "MVC App")
 
 
 ## Step 5 : Install Nomoni.Mvc nuget package
@@ -149,7 +149,7 @@ Add the module as a reference in the first project, build and run.
 
 If the steps were successful then you should have a classic ASP .net Core App running
 
-![Empty Project](../../images/basic-webpage.PNG "MVC App")
+![Empty Project](../images/basic-webpage.PNG "MVC App")
 
 ## Source code for this example
 
