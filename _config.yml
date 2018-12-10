@@ -26,15 +26,17 @@ baseurl: ""
 # This is the base URL for your website e.g. https://treefish.uk/
 url: "http://nomoni.net"
 
+collections:
+  docs:
+    output: true
+    title: docs
+
 # github url
 project_url: "https://github.com/treefishuk/nomoni"
 
 docs_url: "https://treefish.uk/Nomoni/docs/2.1/getting-started/part-one-basic-web-app-with-single-module"
 
-collections:
-docs:
-      output: true
-      title: docs
+
 
 # URL to site image. Site image is used when your site is shared via social media
 # 1:1 aspect ratio with a minimum of 144x144 or maximum of 4096x4096 pixels
