@@ -24,7 +24,7 @@ description: Nomoni Project
 baseurl: "/docs/"
 
 # This is the base URL for your website e.g. https://treefish.uk/
-url: "https://treefish.uk"
+url: "https://treefish.uk/Nomoni"
 
 # github url
 project_url: "https://github.com/treefishuk/nomoni"
