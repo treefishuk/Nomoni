@@ -32,12 +32,9 @@ project_url: "https://github.com/treefishuk/nomoni"
 docs_url: "https://treefish.uk/Nomoni/docs/2.1/getting-started/part-one-basic-web-app-with-single-module"
 
 collections:
-getting_started:
+docs:
       output: true
-      title: getting-started
-advanced_tutorials:
-      output: true
-      title: advanced-tutorials    
+      title: docs
 
 # URL to site image. Site image is used when your site is shared via social media
 # 1:1 aspect ratio with a minimum of 144x144 or maximum of 4096x4096 pixels
