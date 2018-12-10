@@ -81,6 +81,8 @@ collections:
   getting_started : 
       output: true
       permalink: /getting-started/:name
+      title: getting-started      
   advanced_tutorials:
       output: true
       permalink: /advanced-tutorials/:name
+      title: advanced-tutorials      
