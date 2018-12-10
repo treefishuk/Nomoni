@@ -21,7 +21,7 @@ email: jon@treefish.uk
 description: Nomoni Project
 
 # baseurl is the subpath of your site, e.g. /blog
-baseurl: "/docs/"
+baseurl: "/docs"
 
 # This is the base URL for your website e.g. https://treefish.uk/
 url: "http://nomoni.net"
