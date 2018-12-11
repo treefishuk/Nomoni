@@ -4,6 +4,7 @@ title:  "Getting Started - Part 5 : Entity Framework"
 date:   2018-12-07 22:00:00
 categories: beginner
 published: false
+order: 5
 ---
 
 ## Prerequisites
