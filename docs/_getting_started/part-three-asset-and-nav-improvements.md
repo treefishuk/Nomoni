@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Getting Started - Part 3 : Asset and Navigation Improvements"
+title:  "Part 3: Asset and Navigation Improvements"
 date:   2018-12-07 22:00:00
 categories: beginner
 published: true

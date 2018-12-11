@@ -1,6 +1,6 @@
 ---
 layout: doc
-title:  "Getting Started - Part 1 : Basic Web App with single module"
+title:  "Part 1: Basic Web App with single module"
 date:   2018-12-07 22:00:00
 categories: getting-started
 published: true
