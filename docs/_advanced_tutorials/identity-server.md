@@ -1,7 +1,7 @@
 ---
 layout: doc
 title:  "Adding Security with Identity Server 4"
-date:   2018-12-07 22:00:00
+date:   2018-12-11 22:00:00
 categories: advanced
 published: false
 ---
