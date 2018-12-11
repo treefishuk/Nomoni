@@ -26,10 +26,12 @@ baseurl: ""
 # This is the base URL for your website e.g. https://treefish.uk/
 url: "http://nomoni.net"
 
+collections_dir: docs
+
 collections:
-  docs:
+  getting_started:
     output: true
-    title: docs
+    permalink: /getting_started/:title
 
 # github url
 project_url: "https://github.com/treefishuk/nomoni"
