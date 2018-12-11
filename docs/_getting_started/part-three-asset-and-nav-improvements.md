@@ -13,8 +13,8 @@ order: 3
 To start this tutorial you will need to have completed parts 1 & 2: 
 
 
-- [Part 1 : Basic Web App with single module](https://treefish.uk/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module)
-- [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module)
+- [Part 1 : Basic Web App with single module](/docs/getting-started/part-one-basic-web-app-with-single-module)
+- [Part 2 : Adding a Second Module](/docs/getting-started/part-two-adding-a-second-module)
 
 The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
 
@@ -487,5 +487,5 @@ Add RegisterMenuItems.cs to the Registrations folder of the admin module with:
 
 In the Next Tutorial we will look at adding security to the solution.
 
-[Part 4 : Security](/nomoni/docs/tutorials/part-four-security)
+[Part 4 : Security](/nomoni/docs/getting-started/part-four-security)
 

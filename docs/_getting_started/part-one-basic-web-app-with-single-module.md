@@ -160,4 +160,4 @@ The source code for this tutorial can be found here:
 
 ## Next Steps
 
-In [Part 2 : Adding a second module](/nomoni/docs/tutorials/part-two-adding-a-second-module) we will add a second module to the solution.
+In [Part 2 : Adding a second module](/docs/getting-started/part-two-adding-a-second-module) we will add a second module to the solution.
