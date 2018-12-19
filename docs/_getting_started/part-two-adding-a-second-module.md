@@ -10,7 +10,7 @@ order: 2
 
 ## Prerequisites
 
-To start this tutorial you will need to have completed In [Part 1 : Basic Web App with single module](https://treefish.uk/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module). The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
+To start this tutorial you will need to have completed In [Part 1 : Basic Web App with single module](/docs/tutorials/part-one-basic-web-app-with-single-module). The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
 
 The source code for part one is available [HERE](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic)
 
@@ -19,7 +19,7 @@ The source code for part one is available [HERE](https://github.com/treefishuk/n
 
 We are going to add a second module to the solution. The second module will be a a simple "Admin" module. With custom Controller, Model, View, CSS and Javascript. All located in a self contained project. 
 
-## Step 1 : Add a new project using MVC template
+## Step 1 : Add a new .net core project using MVC template
 
 This will form the basic of our new module.
 
@@ -50,7 +50,7 @@ This time also delete:
 
 We will create a custom controller, models, view and static content later on.
 
-As before amend Project.cs to the following:
+Also amend Project.cs to the following:
 
 ```
     public class Program
@@ -127,6 +127,7 @@ Which should produce :
 
 ```
 
+Currently this controllers actions are accessible to anyone. In a later module the controller will be locked down to registered users.
 
 ## Step 7 : Create a New Model
 
@@ -204,7 +205,7 @@ Update it's contents to the following:
 
 ```
 
-Obviously the stylesheet and script location is not ideal. So The next tutorial will cover making that better
+Ideally the styles would be in the head of the HTML document and the Javscript before the closing HTML tag. So The next tutorial will cover making that the case. For now this will do though.
 
 ## Step 11 : Update the Controller
 
@@ -284,6 +285,6 @@ Clicking on the button should produce the alert message, and the title has been 
 
 ## Next Steps
 
-In the Next Tutorial we will fix the issues with the css and javascript placement, and also amend the navigation bar to include the new admin module.
+In the Next Tutorial we will fix the issues with the css and javascript placement.
 
-[Part 3 : Asset and Navigation Improvements](/docs/getting-started/part-three-asset-and-nav-improvements)
+[Part 3 : Asset and Navigation Improvements](/docs/getting-started/part-three-asset-improvements)

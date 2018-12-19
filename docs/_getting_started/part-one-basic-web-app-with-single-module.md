@@ -13,18 +13,21 @@ Welcome to part one of the getting started tutorials. This tutorial describes th
 
 ## Step 1 : Create empty .net core web application
 
+This will be the presentation project which all the module projects that will be created later on will be loaded into. 
+
 ![Empty Project](../images/Empty-Project.PNG "Empty Project")
 
+## Step 2 : Install Nomoni.MVC nuget package
 
-## Step 2 : Install Nomoni/MVC nuget package
-
-Install the Nomoni.Mvc package in the empty project
+Install the Nomoni.Mvc package in the empty presentation project
 
 ```
 Install-Package Nomoni.Mvc
 ```
 
 ## Step 3 : Update Startup.cs
+
+Update the Startup class in the presentation project so it looks like the following:
 
 ```
     public class Startup
@@ -55,16 +58,16 @@ Install-Package Nomoni.Mvc
     }
 ```
 
-## Step 4 : Add a second project using MVC template
+## Step 4 : Create your first module project
 
-This will form the basic of our first module.
+Add a new .net core MVC web application project. This will form the basis of our first module.
 
 ![Empty Project](../images/MVC-App.PNG "MVC App")
 
 
 ## Step 5 : Install Nomoni.Mvc nuget package
 
-Install the Nomoni.Mvc package in the MVC project
+Install the Nomoni.Mvc package in the module project
 
 ```
 Install-Package Nomoni.Mvc
@@ -72,7 +75,7 @@ Install-Package Nomoni.Mvc
 
 ## Step 6 : Remove Unnecessary Things
 
-Delete : 
+Delete the following from the module project: 
 
 - Startup.cs
 - appsettings.json
@@ -88,9 +91,9 @@ And amend Project.cs to the following:
     }
 ```
 
-## Step 7 : Update Project .csproj
+## Step 7 : Update Module Project .csproj
 
-Update the modules .csproj file to look like this:
+Update the module projects .csproj file to look like this:
 
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -129,7 +132,7 @@ Add a new file called "ModuleInfo.cs" and implement the IModule interface found 
 
 ## Step 9 : Create Route Registration Definition
 
-Add a new file to "Registrations" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in Nomoni.Mvc.Registration
+Add a new file to "Registrations" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in the Nomoni.Mvc.Registration namespace
 
 ```
     public class RouteRegistration : IRouteRegistration
@@ -145,7 +148,7 @@ Add a new file to "Registrations" called "RouteRegistration.cs" and implement th
 
 ## Step 10 : Launch App
 
-Add the module as a reference in the first project, build and run.
+In the presentation project add the module project as a reference. Then build and run.
 
 If the steps were successful then you should have a classic ASP .net Core App running
 
