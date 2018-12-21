@@ -85,11 +85,11 @@ Add the module references to the new presentation project
 In the admin model add the Authorize Attribute to the ManagementController
 
 ```
-    [Authorize]
-    public class ManagementController : Controller
-    {
-       // controller content not shown...
-    }
+[Authorize]
+public class ManagementController : Controller
+{
+    // controller content not shown...
+}
 ```
 
 ## Step 7 : Build and run the new presentation project
@@ -106,14 +106,13 @@ In the next few steps we will address this issue.
 In the shared project create an interface for the BaseViewModel class as follows:
 
 ```
-    public interface IBasePageViewModel
-    {
-        IEnumerable<MenuItem> MenuItems { get; set; }
-        List<string> PageScripts { get; set; }
-        List<string> PageStyles { get; set; }
-        string PageTitle { get; set; }
-    }
-
+public interface IBasePageViewModel
+{
+    IEnumerable<MenuItem> MenuItems { get; set; }
+    List<string> PageScripts { get; set; }
+    List<string> PageStyles { get; set; }
+    string PageTitle { get; set; }
+}
 ```
 
 Update the expected model for the _Layout.cshtml to the new interface:
@@ -127,36 +126,36 @@ Update the expected model for the _Layout.cshtml to the new interface:
 The *BasePageModelExtensions* class will need updating to work with *IBasePageViewModel*:
 
 ```
-    public static class BasePageViewModelExtensions
+public static class BasePageViewModelExtensions
+{
+
+    public static T AddPageScript<T>(this T viewModel, string url) where T : IBasePageViewModel
     {
+        viewModel.PageScripts.Add(url);
 
-        public static T AddPageScript<T>(this T viewModel, string url) where T : IBasePageViewModel
-        {
-            viewModel.PageScripts.Add(url);
-
-            return viewModel;
-        }
-
-        public static T AddPageStyles<T>(this T viewModel, string url) where T : IBasePageViewModel
-        {
-            viewModel.PageScripts.Add(url);
-
-            return viewModel;
-        }
-
-        public static T PopulateMenu<T>(this T viewModel) where T : IBasePageViewModel
-        {
-            List<MenuItem> menuItems = new List<MenuItem>();
-
-            foreach (IMenu menu in AssemblyResolution.GetInstances<IMenu>())
-                menuItems.AddRange(menu.MenuItems);
-
-            viewModel.MenuItems = menuItems;
-
-            return viewModel;
-        }
-
+        return viewModel;
     }
+
+    public static T AddPageStyles<T>(this T viewModel, string url) where T : IBasePageViewModel
+    {
+        viewModel.PageScripts.Add(url);
+
+        return viewModel;
+    }
+
+    public static T PopulateMenu<T>(this T viewModel) where T : IBasePageViewModel
+    {
+        List<MenuItem> menuItems = new List<MenuItem>();
+
+        foreach (IMenu menu in AssemblyResolution.GetInstances<IMenu>())
+            menuItems.AddRange(menu.MenuItems);
+
+        viewModel.MenuItems = menuItems;
+
+        return viewModel;
+    }
+
+}
 ```
 
 ## Step 10 : Add Identity Scaffolding
@@ -191,23 +190,21 @@ So we need the best of both worlds...
 To do that create a new class in the new presentation project that looks as follows: 
 
 ```
-
-    public class RazorBasePageModel : PageModel, IBasePageViewModel
+public class RazorBasePageModel : PageModel, IBasePageViewModel
+{
+    public RazorBasePageModel()
     {
-        public RazorBasePageModel()
-        {
-            MenuItems = new List<MenuItem>();
-            PageScripts = new List<string>();
-            PageStyles = new List<string>();
-            this.PopulateMenu();
-        }
-
-        public IEnumerable<MenuItem> MenuItems { get; set; }
-        public List<string> PageScripts { get; set; }
-        public List<string> PageStyles { get; set; }
-        public string PageTitle { get; set; }
+        MenuItems = new List<MenuItem>();
+        PageScripts = new List<string>();
+        PageStyles = new List<string>();
+        this.PopulateMenu();
     }
 
+    public IEnumerable<MenuItem> MenuItems { get; set; }
+    public List<string> PageScripts { get; set; }
+    public List<string> PageStyles { get; set; }
+    public string PageTitle { get; set; }
+}
 ```
 
 ## Step 12 : Update all references for PageModel to new RazorBasePageModel
@@ -223,13 +220,12 @@ If you try a build after that it will however fail because the files have not go
 To get a page title for the pages to show up the title will need to be set in the constructor of every identity page:
 
 ```
-    public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
-    {
-        _signInManager = signInManager;
-        _logger = logger;
-        PageTitle = "Login";
-    }
-
+public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+{
+    _signInManager = signInManager;
+    _logger = logger;
+    PageTitle = "Login";
+}
 ```
 
 ## Step 13 : One more time!

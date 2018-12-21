@@ -14,7 +14,6 @@ To start this tutorial you will need to have completed In [Part 1 : Basic Web Ap
 
 The source code for part one is available [HERE](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic)
 
-
 ## Outcome
 
 We are going to add a second module to the solution. The second module will be a a simple "Admin" module. With custom Controller, Model, View, CSS and Javascript. All located in a self contained project. 
@@ -24,7 +23,6 @@ We are going to add a second module to the solution. The second module will be a
 This will form the basic of our new module.
 
 ![Empty Project](../images/MVC-App.PNG "MVC App")
-
 
 ## Step 2 : Install Nomoni.Mvc nuget package
 
@@ -53,12 +51,12 @@ We will create a custom controller, models, view and static content later on.
 Also amend Project.cs to the following:
 
 ```
-    public class Program
+public class Program
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-        }
     }
+}
 ```
 
 ## Step 4 : Update Project .csproj
@@ -85,7 +83,6 @@ Update the modules .csproj file to look like this:
 </Project>
 ```
 
-
 ## Step 5 : Create Module Definition
 
 Add a new folder to the module project called "Registrations".
@@ -95,14 +92,13 @@ Add a new file called "ModuleInfo.cs" and implement the IModule interface found 
 This time the module we are creating will be for an "admin" area of the website. It will work like an MVC area but will have the benefit of a separate assembly.
 
 ```
-    public class ModuleInfo : IModule
-    {
-        public string Name => "Admin Module";
+public class ModuleInfo : IModule
+{
+    public string Name => "Admin Module";
 
-        public string Author => "Jon Ryan";
-    }
+    public string Author => "Jon Ryan";
+}
 ```
-
 
 ## Step 6 : Create a New Controller
 
@@ -117,14 +113,13 @@ And name it "ManagementController"
 Which should produce : 
 
 ```
-    public class ManagementController : Controller
+public class ManagementController : Controller
+{
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        return View();
     }
-
+}
 ```
 
 Currently this controllers actions are accessible to anyone. In a later module the controller will be locked down to registered users.
@@ -134,14 +129,14 @@ Currently this controllers actions are accessible to anyone. In a later module t
 In the models folder create a new view model called "ManagmentViewModel"
 
 ```
-    public class ManagmentViewModel
-    {
+public class ManagmentViewModel
+{
 
-        public string PageTitle { get; set; }
+    public string PageTitle { get; set; }
 
-        public string PageContent { get; set; }
+    public string PageContent { get; set; }
 
-    }
+}
 ```
 
 ## Step 8 : Create a New stylesheet
@@ -158,9 +153,7 @@ Update it's contents to the following:
     font-size: 20px;
     color: #0094ff
 }
-
 ```
-
 
 ## Step 9 : Create a New Javascript File
 
@@ -172,12 +165,11 @@ In wwwroot -> js add a new javascript file called "admin-scripts"
 Update it's contents to the following:
 
 ```
-
 document.getElementById("button").addEventListener("click", function (e) {
     alert("You clicked a button!");
 });
-
 ```
+
 ## Step 10 : Create a New View
 
 In Views -> Management add a new view called Index
@@ -187,8 +179,6 @@ In Views -> Management add a new view called Index
 Update it's contents to the following:
 
 ```
-
-
 @model Nomoni.Examples.Basic.AdminModule.Models.ManagmentViewModel
 
 @{
@@ -234,8 +224,6 @@ namespace Nomoni.Examples.Basic.AdminModule.Controllers
 }
 ```
 
-
-
 ## Step 12 : Create Route Registration Definition
 
 Add a new file to "Registrations" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in Nomoni.Mvc.Registration
@@ -257,7 +245,6 @@ namespace Nomoni.Examples.Basic.AdminModule.Registrations
         }
     }
 }
-
 ```
 
 ## Step 13 : Add Created Module
@@ -277,7 +264,6 @@ This time you should be able to access content from the new admin module by goin
 ![Management Module](../images/management-module.png "Management Module")
 
 Clicking on the button should produce the alert message, and the title has been styled with the admin stylesheet.
-
 
 ## The Source Code for this Tutorial can be found
 

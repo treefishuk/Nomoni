@@ -35,21 +35,21 @@ This will form the basic of our new module.
 Add a class to the shared project that looks like this:
 
 ```
-    public class BasePageViewModel
+public class BasePageViewModel
+{
+    public BasePageViewModel()
     {
-        public BasePageViewModel()
-        {
-            PageScripts = new List<string>();
-            PageStyles = new List<string>();
-        }
-
-        public string PageTitle { get; set; }
-
-        public List<string> PageScripts { get; set; }
-
-        public List<string> PageStyles { get; set; }
-
+        PageScripts = new List<string>();
+        PageStyles = new List<string>();
     }
+
+    public string PageTitle { get; set; }
+
+    public List<string> PageScripts { get; set; }
+
+    public List<string> PageStyles { get; set; }
+
+}
 ```
 
 ## Step 3 : Add a BasePageViewModelExtensions Class
@@ -57,24 +57,24 @@ Add a class to the shared project that looks like this:
 Add a class to the shared project that looks like this:
 
 ```
-    public static class BasePageViewModelExtensions
+public static class BasePageViewModelExtensions
+{
+
+    public static T AddPageScript<T>(this T viewModel, string url) where T : BasePageViewModel
     {
+        viewModel.PageScripts.Add(url);
 
-        public static T AddPageScript<T>(this T viewModel, string url) where T : BasePageViewModel
-        {
-            viewModel.PageScripts.Add(url);
-
-            return viewModel;
-        }
-
-        public static T AddPageStyles<T>(this T viewModel, string url) where T : BasePageViewModel
-        {
-            viewModel.PageScripts.Add(url);
-
-            return viewModel;
-        }
-
+        return viewModel;
     }
+
+    public static T AddPageStyles<T>(this T viewModel, string url) where T : BasePageViewModel
+    {
+        viewModel.PageScripts.Add(url);
+
+        return viewModel;
+    }
+
+}
 ```
 
 ## Step 4 : Update ManagmentViewModel.cs
@@ -82,10 +82,10 @@ Add a class to the shared project that looks like this:
 Update the ManagmentViewModel.cs to inherit from the BasePageViewModel class:
 
 ```
-    public class ManagmentViewModel : BasePageViewModel
-    {
-        public string PageContent { get; set; }
-    }
+public class ManagmentViewModel : BasePageViewModel
+{
+    public string PageContent { get; set; }
+}
 ```
 
 
@@ -126,7 +126,6 @@ namespace Nomoni.Examples.Basic.AdminModule.Controllers
 The View should now look like this : 
 
 ```
-
 @model Nomoni.Examples.Basic.AdminModule.Models.ManagmentViewModel
 
 @{
@@ -138,8 +137,6 @@ The View should now look like this :
 @Model.PageContent
 
 <a href="#" id="button" class="btn btn-primary">Click Me</a>
-
-
 ```
 
 
@@ -246,48 +243,48 @@ Add a reference to the shared module in the basic module and update _Layout.csht
 The HomeController.cs file will need amending to pass a BasePageViewModel to the view as follows :
 
 ```
-    public class HomeController : Controller
+public class HomeController : Controller
+{
+    public IActionResult Index()
     {
-        public IActionResult Index()
-        {
-            var model = new BasePageViewModel();
+        var model = new BasePageViewModel();
 
-            return View(model);
-        }
-
-        public IActionResult About()
-        {
-
-            var model = new BasePageViewModel();
-
-            ViewData["Message"] = "Your application description page.";
-
-            return View(model);
-        }
-
-        public IActionResult Contact()
-        {
-
-            var model = new BasePageViewModel();
-
-            ViewData["Message"] = "Your contact page.";
-
-            return View(model);
-        }
-
-        public IActionResult Privacy()
-        {
-            var model = new BasePageViewModel();
-
-            return View(model);
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        return View(model);
     }
+
+    public IActionResult About()
+    {
+
+        var model = new BasePageViewModel();
+
+        ViewData["Message"] = "Your application description page.";
+
+        return View(model);
+    }
+
+    public IActionResult Contact()
+    {
+
+        var model = new BasePageViewModel();
+
+        ViewData["Message"] = "Your contact page.";
+
+        return View(model);
+    }
+
+    public IActionResult Privacy()
+    {
+        var model = new BasePageViewModel();
+
+        return View(model);
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+}
 
 ```
 

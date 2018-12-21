@@ -25,20 +25,19 @@ The aim of this tutorial is to make the navigation bar dynamic based upon loaded
 Add MenuItem.cs to the shared project :
 
 ```
-    public class MenuItem
-    {
-        public string Name { get; }
-        public string Url { get; }
-        public int Position { get; }
+public class MenuItem
+{
+    public string Name { get; }
+    public string Url { get; }
+    public int Position { get; }
        
-        public MenuItem(string name, int position, string url)
-        {
-            this.Name = name;
-            this.Position = position;
-            this.Url = url;
-        }
+    public MenuItem(string name, int position, string url)
+    {
+        this.Name = name;
+        this.Position = position;
+        this.Url = url;
     }
-
+}
 ```
 
 ## Step 2 : Add a new IMenu Interface to the Shared Project
@@ -46,11 +45,10 @@ Add MenuItem.cs to the shared project :
 Add IMenu.cs to the shared project :
 
 ```
-    public interface IMenu
-    {
-        IEnumerable<MenuItem> MenuItems { get; }
-    }
-
+public interface IMenu
+{
+    IEnumerable<MenuItem> MenuItems { get; }
+}
 ```
 
 ## Step 3 : Add Nomoni.Core.Helpers Nuget Package to the Shared Project
@@ -64,24 +62,24 @@ Install-Package Nomoni.Core.Helpers
 
 
 ```
-    public class BasePageViewModel
+public class BasePageViewModel
+{
+    public BasePageViewModel()
     {
-        public BasePageViewModel()
-        {
-            PageScripts = new List<string>();
-            PageStyles = new List<string>();
-            this.PopulateMenu();
-        }
-
-        public string PageTitle { get; set; }
-
-        public List<string> PageScripts { get; set; }
-
-        public List<string> PageStyles { get; set; }
-
-        public IEnumerable<MenuItem> MenuItems { get; set; }
-
+        PageScripts = new List<string>();
+        PageStyles = new List<string>();
+        this.PopulateMenu();
     }
+
+    public string PageTitle { get; set; }
+
+    public List<string> PageScripts { get; set; }
+
+    public List<string> PageStyles { get; set; }
+
+    public IEnumerable<MenuItem> MenuItems { get; set; }
+
+}
 ```
 
 The PopulateMenu Extension will be created in the next step.
@@ -91,36 +89,36 @@ The PopulateMenu Extension will be created in the next step.
 
 
 ```
-    public static class BasePageViewModelExtensions
+public static class BasePageViewModelExtensions
+{
+
+    public static T AddPageScript<T>(this T viewModel, string url) where T : BasePageViewModel
     {
+        viewModel.PageScripts.Add(url);
 
-        public static T AddPageScript<T>(this T viewModel, string url) where T : BasePageViewModel
-        {
-            viewModel.PageScripts.Add(url);
-
-            return viewModel;
-        }
-
-        public static T AddPageStyles<T>(this T viewModel, string url) where T : BasePageViewModel
-        {
-            viewModel.PageScripts.Add(url);
-
-            return viewModel;
-        }
-
-        public static T PopulateMenu<T>(this T viewModel) where T : BasePageViewModel
-        {
-            List<MenuItem> menuItems = new List<MenuItem>();
-
-            foreach (IMenu menu in AssemblyResolution.GetInstances<IMenu>())
-                menuItems.AddRange(menu.MenuItems);
-
-            viewModel.MenuItems = menuItems;
-
-            return viewModel;
-        }
-
+        return viewModel;
     }
+
+    public static T AddPageStyles<T>(this T viewModel, string url) where T : BasePageViewModel
+    {
+        viewModel.PageScripts.Add(url);
+
+        return viewModel;
+    }
+
+    public static T PopulateMenu<T>(this T viewModel) where T : BasePageViewModel
+    {
+        List<MenuItem> menuItems = new List<MenuItem>();
+
+        foreach (IMenu menu in AssemblyResolution.GetInstances<IMenu>())
+            menuItems.AddRange(menu.MenuItems);
+
+        viewModel.MenuItems = menuItems;
+
+        return viewModel;
+    }
+
+}
 ```
 
 
@@ -129,28 +127,27 @@ The PopulateMenu Extension will be created in the next step.
 Update the "Nav" section of _Layout.cshtml to : 
 
 ```
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-
-                    @foreach (var menuitem in Model.MenuItems.OrderBy(x => x.Position))
-                    {
-                        <li><a href="@menuitem.Url">@menuitem.Name</a></li>
-                    }
-                </ul>
-            </div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
         </div>
-    </nav>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                @foreach (var menuitem in Model.MenuItems.OrderBy(x => x.Position))
+                {
+                    <li><a href="@menuitem.Url">@menuitem.Name</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+</nav>
 ```
 
 
@@ -159,22 +156,21 @@ Update the "Nav" section of _Layout.cshtml to :
 Add RegisterMenuItems.cs to the Registrations folder of the base module with: 
 
 ```
-
-    public class RegisterMenuItems : IMenu
+public class RegisterMenuItems : IMenu
+{
+    public IEnumerable<MenuItem> MenuItems
     {
-        public IEnumerable<MenuItem> MenuItems
+        get
         {
-            get
+            return new MenuItem[]
             {
-                return new MenuItem[]
-                {
-                            new MenuItem("Home", 100, "/"),
-                            new MenuItem("About", 120, "/home/about"),
-                            new MenuItem("Contact", 130, "/home/contact")
-                };
-            }
+                        new MenuItem("Home", 100, "/"),
+                        new MenuItem("About", 120, "/home/about"),
+                        new MenuItem("Contact", 130, "/home/contact")
+            };
         }
     }
+}
 ```
 
 ## Step 8 : Add Menu Items for Admin Module
@@ -182,22 +178,20 @@ Add RegisterMenuItems.cs to the Registrations folder of the base module with:
 Add RegisterMenuItems.cs to the Registrations folder of the admin module with: 
 
 ```
-
-    public class RegisterMenuItems : IMenu
+public class RegisterMenuItems : IMenu
+{
+    public IEnumerable<MenuItem> MenuItems
     {
-        public IEnumerable<MenuItem> MenuItems
+        get
         {
-            get
+            return new MenuItem[]
             {
-                return new MenuItem[]
-                {
-                            new MenuItem("Management", 200, "/admin/management")
-                };
-            }
+                        new MenuItem("Management", 200, "/admin/management")
+            };
         }
     }
+}
 ```
-
 
 ## The Source Code for this Tutorial can be found
 

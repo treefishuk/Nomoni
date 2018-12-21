@@ -30,32 +30,32 @@ Install-Package Nomoni.Mvc
 Update the Startup class in the presentation project so it looks like the following:
 
 ```
-    public class Startup
+public class Startup
+{
+    // This method gets called by the runtime. Use this method to add services to the container.
+    // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+    public void ConfigureServices(IServiceCollection services)
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
-        {
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.UseNomoni();
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseNomoni();
-
-            app.UseStaticFiles();
-  
-        }
+        services.UseNomoni();
     }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.UseNomoni();
+
+        app.UseStaticFiles();
+  
+    }
+}
 ```
 
 ## Step 4 : Create your first module project
@@ -63,7 +63,6 @@ Update the Startup class in the presentation project so it looks like the follow
 Add a new .net core MVC web application project. This will form the basis of our first module.
 
 ![Empty Project](../images/MVC-App.PNG "MVC App")
-
 
 ## Step 5 : Install Nomoni.Mvc nuget package
 
@@ -83,12 +82,12 @@ Delete the following from the module project:
 And amend Project.cs to the following:
 
 ```
-    public class Program
+public class Program
+{
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-        }
     }
+}
 ```
 
 ## Step 7 : Update Module Project .csproj
@@ -122,12 +121,12 @@ Add a new folder to the module project called "Registrations".
 Add a new file called "ModuleInfo.cs" and implement the IModule interface found in Nomoni.Core.Abstractions
 
 ```
-    public class ModuleInfo : IModule
-    {
-        public string Name => "Example Module";
+public class ModuleInfo : IModule
+{
+    public string Name => "Example Module";
 
-        public string Author => "Jon Ryan";
-    }
+    public string Author => "Jon Ryan";
+}
 ```
 
 ## Step 9 : Create Route Registration Definition
@@ -135,15 +134,15 @@ Add a new file called "ModuleInfo.cs" and implement the IModule interface found 
 Add a new file to "Registrations" called "RouteRegistration.cs" and implement the IRouteRegistration interface found in the Nomoni.Mvc.Registration namespace
 
 ```
-    public class RouteRegistration : IRouteRegistration
-    {
-        public int Priority => 1000;
+public class RouteRegistration : IRouteRegistration
+{
+    public int Priority => 1000;
 
-        public void Execute(IRouteBuilder routeBuilder)
-        {
-            routeBuilder.MapRoute(name: "module", template: "{controller}/{action}/{id?}", defaults: new { controller = "Home", action = "Index" });
-        }
+    public void Execute(IRouteBuilder routeBuilder)
+    {
+        routeBuilder.MapRoute(name: "module", template: "{controller}/{action}/{id?}", defaults: new { controller = "Home", action = "Index" });
     }
+}
 ```
 
 ## Step 10 : Launch App
@@ -159,7 +158,6 @@ If the steps were successful then you should have a classic ASP .net Core App ru
 The source code for this tutorial can be found here:
 
 [https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic)
-
 
 ## Next Steps
 
