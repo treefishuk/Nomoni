@@ -12,16 +12,13 @@ order: 4
 
 To start this tutorial you will need to have completed parts 1 & 2: 
 
-
 - [Part 1 : Basic Web App with single module](/docs/getting-started/part-one-basic-web-app-with-single-module)
 - [Part 2 : Adding a Second Module](/docs/getting-started/part-two-adding-a-second-module)
 - [Part 3 : Asset Improvements](/docs/getting-started/part-three-asset-improvements)
 
-The result of which is a basic MVC .net core app with a single module that looks and plays just like the standard .net core template app.
-
 ## Outcome
 
-The aim of this tutorial is to make the navigation bar dynamic based upon loaded modules. The only way to get to "/admin/management" is to type in the URL directly at the moment. So these next few steps will fix that.
+The aim of this tutorial is to make the navigation bar dynamic based upon loaded modules. The only way to get to "/admin/management" at the moment is to type in the URL directly at the moment. So these next few steps will fix that.
 
 ## Step 1 : Add a new Menu Item Class to the Shared Project
 

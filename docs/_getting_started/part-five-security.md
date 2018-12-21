@@ -10,21 +10,20 @@ order: 5
 
 ## Prerequisites
 
-To start this tutorial you will need to have completed the first 3 parts in the series:
+To start this tutorial you will need to have completed the first 4 parts in the series:
 
 - [Part 1 : Basic Web App with single module](/docs/getting-started/part-one-basic-web-app-with-single-module)
 - [Part 2 : Adding a Second Module](/docs/getting-started/part-two-adding-a-second-module)
-- [Part 3 : Asset and Navigation Improvements](/docs/getting-started/part-three-asset-and-nav-improvements)
-
-The result of which is a basic MVC .net core app with a two modules and modular inclusion of javascript and css.
+- [Part 3 : Asset Improvements](/docs/getting-started/part-three-asset-improvements)
+- [Part 4 : Navigation Improvements](/docs/getting-started/part-four-nav-improvements)
 
 ## Outcome
 
 The aim of this tutorial is to add authentication to the solution.
 
-## Step 1 : Replace the original master project
+## Step 1 : Replace the original presentation project
 
-Delete the original master project. Then add a new .net core project to the solution.
+Delete the original presentation project. Then add a new .net core MVC project to the solution.
 
 ![Empty Project](../images/MVC-App.PNG "MVC App")
 
@@ -32,9 +31,11 @@ Delete the original master project. Then add a new .net core project to the solu
 
 ![individual accounts](../images/individual-accounts.png "individual accounts")
 
+This will become our new presentation project.
+
 ## Step 2 : Delete the things!
 
-Delete the following folders and content : 
+Delete the following folders and content: 
 
 - wwwroot
 - Controllers
@@ -45,7 +46,7 @@ Delete the following folders and content :
 
 ## Step 3 : Install Nomoni/MVC nuget package
 
-Install the Nomoni.Mvc package in the new master project
+Install the Nomoni.Mvc package in the new presentation project
 
 ```
 Install-Package Nomoni.Mvc
@@ -77,7 +78,7 @@ app.UseNomoni();
 
 ## Step 5 : Add Module References
 
-Add the module references to the new master project
+Add the module references to the new presentation project
 
 ## Step 6 : Add Authorize Attribute
 
@@ -91,9 +92,9 @@ In the admin model add the Authorize Attribute to the ManagementController
     }
 ```
 
-## Step 7 : Build and run the new master project
+## Step 7 : Build and run the new presentation project
 
-Build and run the new master project, and try to access the management page in the menu...
+Build and run the new presentation project, and try to access the management page in the menu...
 
 At this point you will see an error message. The _Layout.cshtml in the main module expects a *BaseViewModel* to be passed to the view. The Login page however in the Razor library that Identity now uses expects a *LoginModel* to be passed to the view.   
 
@@ -160,7 +161,7 @@ The *BasePageModelExtensions* class will need updating to work with *IBasePageVi
 
 ## Step 10 : Add Identity Scaffolding
 
-Right click the new master project then go to 
+Right click the new presentation project then go to 
 
 *Add --> New Scaffolded item... --> Identity*
 
@@ -187,7 +188,7 @@ But for _Layout.cshtml they need to inherit from *IBasePageViewModel*
 
 So we need the best of both worlds... 
 
-To do that create a new class in the new master project that looks as follows: 
+To do that create a new class in the new presentation project that looks as follows: 
 
 ```
 
@@ -239,7 +240,7 @@ Build and run the solution and everything should now be working! Huzzah!
 
 ## The Source Code for this Tutorial can be found
 
-[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Security](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Security)
+[https://github.com/treefishuk/nomoni/tree/presentation/examples/Nomoni.Examples.Security](https://github.com/treefishuk/nomoni/tree/presentation/examples/Nomoni.Examples.Security)
 
 ## Next Steps
 
