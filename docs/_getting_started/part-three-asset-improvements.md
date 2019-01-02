@@ -294,7 +294,7 @@ Upon inspecting the source code for the page for "/admin/management" the web app
 
 ## The Source Code for this Tutorial can be found
 
-[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements)
+[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetImprovements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetImprovements)
 
 ## Next Steps
 

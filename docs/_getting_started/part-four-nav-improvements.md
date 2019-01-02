@@ -195,7 +195,7 @@ public class RegisterMenuItems : IMenu
 
 ## The Source Code for this Tutorial can be found
 
-[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements)
+[https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.NavImprovements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.NavImprovements)
 
 ## Next Steps
 
