@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-Nomoni.Examples.Security-C4575B02-3F85-459A-917D-E3CB26FED039</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" PrivateAssets="All" />
+    <PackageReference Include="Nomoni.Mvc" Version="0.1.18334" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nomoni.Examples.EFCore.AdminModule\Nomoni.Examples.EFCore.AdminModule.csproj" />
+    <ProjectReference Include="..\Nomoni.Examples.EFCore.Data.Identity\Nomoni.Examples.EFCore.Data.Identity.csproj" />
+    <ProjectReference Include="..\Nomoni.Examples.EFCore.Module\Nomoni.Examples.EFCore.Module.csproj" />
+  </ItemGroup>
+
+</Project>

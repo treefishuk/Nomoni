@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2016
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomoni.Examples.EFCore", "Nomoni.Examples.EFCore\Nomoni.Examples.EFCore.csproj", "{398AB174-75A9-4D4E-876E-16B11A769D3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomoni.Examples.EFCore.Shared", "Nomoni.Examples.EFCore.Shared\Nomoni.Examples.EFCore.Shared.csproj", "{94307341-E5C1-4DEB-B853-C07ED8341630}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomoni.Examples.EFCore.Module", "Nomoni.Examples.EFCore.Module\Nomoni.Examples.EFCore.Module.csproj", "{1D339221-1BE5-423C-808A-538886A97E24}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nomoni.Examples.EFCore.AdminModule", "Nomoni.Examples.EFCore.AdminModule\Nomoni.Examples.EFCore.AdminModule.csproj", "{96D51CC3-F504-4F8F-9FBB-DC2A2662D4F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomoni.Examples.EFCore.Data.Identity", "Nomoni.Examples.EFCore.Data.Identity\Nomoni.Examples.EFCore.Data.Identity.csproj", "{4266A022-7376-4FF2-B9A3-C4B24AB81EA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{398AB174-75A9-4D4E-876E-16B11A769D3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{398AB174-75A9-4D4E-876E-16B11A769D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{398AB174-75A9-4D4E-876E-16B11A769D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{398AB174-75A9-4D4E-876E-16B11A769D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94307341-E5C1-4DEB-B853-C07ED8341630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94307341-E5C1-4DEB-B853-C07ED8341630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94307341-E5C1-4DEB-B853-C07ED8341630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94307341-E5C1-4DEB-B853-C07ED8341630}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D339221-1BE5-423C-808A-538886A97E24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D339221-1BE5-423C-808A-538886A97E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D339221-1BE5-423C-808A-538886A97E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D339221-1BE5-423C-808A-538886A97E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D51CC3-F504-4F8F-9FBB-DC2A2662D4F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D51CC3-F504-4F8F-9FBB-DC2A2662D4F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D51CC3-F504-4F8F-9FBB-DC2A2662D4F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D51CC3-F504-4F8F-9FBB-DC2A2662D4F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4266A022-7376-4FF2-B9A3-C4B24AB81EA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4266A022-7376-4FF2-B9A3-C4B24AB81EA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4266A022-7376-4FF2-B9A3-C4B24AB81EA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4266A022-7376-4FF2-B9A3-C4B24AB81EA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91B089BB-B448-42FD-92D9-CB73D892D74E}
+	EndGlobalSection
+EndGlobal

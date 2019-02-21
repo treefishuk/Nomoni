@@ -13,7 +13,8 @@ To start this tutorial you will need to have completed the first 3 parts in the 
 
 - [Part 1 : Basic Web App with single module](https://treefish.uk/nomoni/docs/tutorials/part-one-basic-web-app-with-single-module)
 - [Part 2 : Adding a Second Module](https://treefish.uk/nomoni/docs/tutorials/part-two-adding-a-second-module)
-- [Part 3 : Asset](https://treefish.uk/nomoni/docs/tutorials/part-three-asset-and-nav-improvements)
+- [Part 3 : Asset Improvements](https://treefish.uk/nomoni/docs/tutorials/part-three-asset-improvements)
+- [Part 4 : Nav Improvements](https://treefish.uk/nomoni/docs/tutorials/part-four-nav-improvements)
 
 The result of which is a basic MVC .net core app with a two modules and modular inclusion of javascript and css.
 

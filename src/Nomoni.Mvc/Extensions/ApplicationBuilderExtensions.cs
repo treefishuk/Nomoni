@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
 using Nomoni.Core.Helpers;
 using Nomoni.Mvc.Registration;
 using System.Linq;
