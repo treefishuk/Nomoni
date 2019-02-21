@@ -14,9 +14,15 @@ namespace Nomoni.Core.Helpers
 
             List<Assembly> allAssemblies = new List<Assembly>();
 
-            foreach (string dll in Directory.GetFiles(path, "*.dll"))
+            foreach (string dll in (Directory.GetFiles(path, "*.dll")))
             {
-                allAssemblies.Add(Assembly.LoadFile(dll));
+                string filename = Path.GetFileName(dll);
+
+                if(!filename.StartsWith("Microsoft") && !filename.StartsWith("System"))
+                {
+                    allAssemblies.Add(Assembly.LoadFile(dll));
+                }
+
             }
 
             return allAssemblies;
