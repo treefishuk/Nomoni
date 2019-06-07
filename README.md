@@ -55,8 +55,8 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 - [Part 1 : ASP Web App With Single Module](https://nomoni.net/docs/getting-started/part-one-basic-web-app-with-single-module) 
 - [Part 2 : Adding a Second Module](https://nomoni.net/docs/getting-started/part-two-adding-a-second-module) 
 - [Part 3 : Asset Improvements](https://nomoni.net/docs/getting-started/part-three-asset-improvements)
-- [Part 4 : Navigation Improvements]https://nomoni.net/docs/getting-started/part-four-nav-improvements)
-- [Part 5 : Adding Security]https://nomoni.net/docs/getting-started/part-five-security)
+- [Part 4 : Navigation Improvements](https://nomoni.net/docs/getting-started/part-four-nav-improvements)
+- [Part 5 : Adding Security](https://nomoni.net/docs/getting-started/part-five-security)
 
 ### Tutorials Coming Soon..
 
