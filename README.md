@@ -52,10 +52,11 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 
 ### Tutorials:
 
-- [Part 1 : ASP Web App With Single Module](https://treefish.uk/Nomoni/docs/2.1/getting-started/part-one-basic-web-app-with-single-module) 
-- [Part 2 : Adding a Second Module](https://treefish.uk/Nomoni/docs/2.1/getting-started/part-two-adding-a-second-module) 
-- [Part 3 : Asset and Navigation Improvements](https://treefish.uk/Nomoni/docs/2.1/getting-started/part-three-asset-and-nav-improvements)
-- [Part 4 : Adding Security](https://treefish.uk/Nomoni/docs/2.1/getting-started/part-four-security)
+- [Part 1 : ASP Web App With Single Module](https://nomoni.net/docs/getting-started/part-one-basic-web-app-with-single-module) 
+- [Part 2 : Adding a Second Module](https://nomoni.net/docs/getting-started/part-two-adding-a-second-module) 
+- [Part 3 : Asset Improvements](https://nomoni.net/docs/getting-started/part-three-asset-improvements)
+- [Part 4 : Navigation Improvements]https://nomoni.net/docs/getting-started/part-four-nav-improvements)
+- [Part 5 : Adding Security]https://nomoni.net/docs/getting-started/part-five-security)
 
 ### Tutorials Coming Soon..
 
@@ -65,10 +66,11 @@ So the idea with this is that it is friendly sounding abbreviated(ish) version o
 
 ### Sample projects on GitHub:
 
-- [Part 1 : ASP Web App With Single Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic/) 
-- [Part 2 : ASP Web App With Second Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.SecondModule/) 
-- [Part 3 : Asset and Navigation Improvements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetAndNavImprovements/) 
-- [Part 4 : Adding Security](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Security/) 
+- [Part 1 : ASP Web App With Single Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.Basic) 
+- [Part 2 : ASP Web App With Second Module](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.SecondModule)
+- [Part 3 : Asset Improvements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.AssetImprovements)
+- [Part 4 : Navigation Improvements](https://github.com/treefishuk/nomoni/tree/master/examples/Nomoni.Examples.NavImprovements) 
+- [Part 5 : Adding Security](https://github.com/treefishuk/Nomoni/tree/master/examples/Nomoni.Examples.Security) 
 
 ### Support
 
