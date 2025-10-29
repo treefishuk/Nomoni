@@ -24,7 +24,7 @@ description: Nomoni Project
 baseurl: ""
 
 # This is the base URL for your website e.g. https://treefish.uk/
-url: "http://nomoni.net"
+url: "https://treefish.uk/nomoni"
 
 collections_dir: docs
 
